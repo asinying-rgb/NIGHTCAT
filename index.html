@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夜貓子的狂想 | Night Owl's Reverie</title>
+    <style>
+        /* 🎨 全域變數：微醺馬卡龍復古配色（柔和、耐看、保護眼睛） */
+        :root {
+            --bg-color: #0f0c1b;      /* 稍微帶有明度的深夜紫藍色底，比純黑更溫柔 */
+            --main-pink: #E55B85;     /* 降低飽和度的玫瑰粉紅（告別刺眼，變溫柔） */
+            --sub-cyan: #5CE1E6;      /* 帶有粉質的湖水青色（更像日系復古雜誌感） */
+            --text-main: #F4F3F6;     /* 稍微帶點米白的暖白文字，減少純白對眼睛的刺激 */
+            --text-sub: #7D7890;      /* 柔和的暮光霧灰 */
+            --card-bg: rgba(255, 255, 255, 0.015);
+            --glass-bg: rgba(255, 255, 255, 0.01);
+            --glass-border: rgba(255, 255, 255, 0.04);
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 15%, rgba(229, 91, 133, 0.08) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 60%, rgba(92, 225, 230, 0.05) 0%, transparent 45%);
+        }
+
+        /* 導覽列 */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 20px 10%;
+            display: flex; justify-content: space-between; align-items: center; z-index: 100;
+            background: rgba(15, 12, 27, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; text-shadow: 0 0 10px rgba(229, 91, 133, 0.3); }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 30px; }
+        .nav-links a { color: var(--text-sub); text-decoration: none; font-size: 16px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--sub-cyan); text-shadow: 0 0 8px var(--sub-cyan); }
+
+        /* 通用區塊設定 */
+        section { padding: 120px 10% 80px 10%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .section-title { font-size: 36px; margin-bottom: 15px; text-align: center; letter-spacing: 2px; text-shadow: 0 0 15px rgba(92, 225, 230, 0.1); }
+        .section-subtitle { color: var(--text-sub); margin-bottom: 50px; font-size: 16px; text-align: center; }
+
+        /* 主視覺區 (Hero Section) */
+        #home { text-align: center; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2)); }
+        #home h1 { font-size: 52px; margin-bottom: 25px; letter-spacing: 2px; line-height: 1.3; color: var(--text-main); }
+        #home p { font-size: 18px; color: var(--text-sub); max-width: 650px; margin-bottom: 45px; line-height: 1.6; }
+        .btn-cta {
+            display: inline-block; padding: 16px 45px; background: transparent; color: var(--main-pink);
+            border: 2px solid var(--main-pink); border-radius: 50px; font-size: 18px; font-weight: bold;
+            text-decoration: none; transition: 0.4s; box-shadow: 0 0 15px rgba(229, 91, 133, 0.1);
+        }
+        .btn-cta:hover { background: var(--main-pink); color: var(--bg-color); box-shadow: 0 0 25px var(--main-pink); transform: translateY(-3px); }
+
+        /* AI 複合式控制台 */
+        .ai-dashboard {
+            background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(12px);
+            padding: 40px; border-radius: 24px; max-width: 1150px; width: 100%;
+            display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .control-panel { display: flex; flex-direction: column; justify-content: center; }
+        .panel-label { font-size: 13px; color: var(--sub-cyan); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; font-weight: bold; }
+        .options-group { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px; }
+
+        .select-btn {
+            background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); color: var(--text-sub);
+            padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: 0.2s;
+        }
+        .select-btn:hover { border-color: var(--sub-cyan); color: #fff; }
+
+        /* 標籤啟動特效 */
+        .location-group .select-btn.active { background: rgba(92, 225, 230, 0.1); border-color: var(--sub-cyan); color: var(--sub-cyan); box-shadow: 0 0 12px rgba(92, 225, 230, 0.15); }
+        .mood-group .select-btn.active { background: rgba(229, 91, 133, 0.1); border-color: var(--main-pink); color: var(--main-pink); box-shadow: 0 0 12px rgba(229, 91, 133, 0.15); }
+
+        .btn-generate {
+            background: linear-gradient(45deg, var(--main-pink), #ed799d); color: var(--bg-color); border: none;
+            padding: 16px; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer;
+            transition: 0.3s; box-shadow: 0 0 15px rgba(229, 91, 133, 0.2); margin-top: 10px;
+        }
+        .btn-generate:hover { transform: translateY(-2px); box-shadow: 0 0 25px var(--main-pink); color: var(--bg-color); }
+
+        /* 右側播放器面板 */
+        .player-panel { display: flex; flex-direction: column; align-items: center; justify-content: center; border-left: 1px solid var(--glass-border); padding-left: 40px; }
+        .vinyl-wrapper { position: relative; width: 180px; height: 180px; margin-bottom: 25px; }
+        .vinyl {
+            width: 100%; height: 100%; background: radial-gradient(circle, #252033 25%, #0d0a17 55%, #181426 65%, #05040a 100%);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 25px rgba(0,0,0,0.5);
+        }
+        .vinyl.playing { animation: rotateVinyl 6s linear infinite; }
+        .vinyl-center { width: 60px; height: 60px; background: var(--main-pink); border-radius: 50%; border: 5px solid #0d0a17; }
+        .vinyl.playing .vinyl-center { background: var(--sub-cyan); box-shadow: 0 0 15px var(--sub-cyan); }
+        @keyframes rotateVinyl { 100% { transform: rotate(360deg); } }
+
+        .status-text { font-size: 18px; font-weight: bold; margin-bottom: 8px; text-align: center; color: var(--text-main); }
+        .style-display { font-size: 13px; color: var(--text-sub); margin-bottom: 20px; text-align: center; line-height: 1.6; min-height: 75px; }
+
+        /* 音訊跳動波形圖 */
+        .wave-container { display: flex; align-items: center; gap: 4px; height: 30px; opacity: 0.15; }
+        .wave-container.active { opacity: 1; }
+        .wave-bar { width: 3px; height: 100%; background: var(--sub-cyan); border-radius: 3px; }
+        .wave-container.active .wave-bar { animation: jump 1s ease-in-out infinite alternate; }
+        .wave-container.active .wave-bar:nth-child(2n) { animation-delay: 0.2s; background: var(--main-pink); }
+        .wave-container.active .wave-bar:nth-child(3n) { animation-delay: 0.4s; }
+        @keyframes jump { 0% { height: 20%; } 100% { height: 100%; } }
+
+        /* 音樂作品牆 */
+        .music-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; width: 100%; max-width: 1000px; }
+        .music-card { background: var(--card-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; transition: 0.4s; text-align: center; }
+        .music-card:hover { transform: translateY(-10px); border-color: var(--main-pink); box-shadow: 0 10px 25px rgba(229, 91, 133, 0.1); }
+        .cover-art { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #1b152e, #0d0a17); border-radius: 10px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-size: 45px; border: 1px solid rgba(255,255,255,0.02); }
+        .music-card h3 { font-size: 20px; margin-bottom: 8px; color: var(--text-main); }
+        .music-card p { color: var(--text-sub); font-size: 14px; }
+
+        /* 關於我 */
+        .about-content { display: flex; align-items: center; gap: 60px; max-width: 950px; width: 100%; flex-wrap: wrap; }
+        .about-img { width: 260px; height: 260px; background: linear-gradient(45deg, var(--main-pink), var(--sub-cyan)); border-radius: 24px; box-shadow: 0 0 25px rgba(92, 225, 230, 0.1); }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-text p { font-size: 17px; color: var(--text-main); line-height: 1.9; margin-bottom: 18px; letter-spacing: 0.5px; }
+
+        /* 聯絡合作 */
+        .contact-form { max-width: 600px; width: 100%; display: flex; flex-direction: column; gap: 20px; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 16px; background: rgba(255,255,255,0.01);
+            border: 1px solid var(--glass-border); border-radius: 10px; color: #fff; font-size: 16px; transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--sub-cyan); box-shadow: 0 0 10px rgba(92, 225, 230, 0.1); }
+        .btn-submit { padding: 16px; background: transparent; border: 2px solid var(--sub-cyan); color: var(--sub-cyan); font-size: 16px; font-weight: bold; border-radius: 10px; cursor: pointer; transition: 0.3s; }
+        .btn-submit:hover { background: var(--sub-cyan); color: var(--bg-color); box-shadow: 0 0 15px var(--sub-cyan); }
+
+        footer { text-align: center; padding: 40px; color: var(--text-sub); font-size: 14px; border-top: 1px solid var(--glass-border); margin-top: 60px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            #home h1 { font-size: 36px; }
+            .ai-dashboard { grid-template-columns: 1fr; }
+            .player-panel { border-left: none; padding-left: 0; padding-top: 40px; border-top: 1px solid var(--glass-border); }
+            .about-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <header>
+        <div class="logo">Night Owl's Reverie</div>
+        <ul class="nav-links">
+            <li><a href="#home">首頁</a></li>
+            <li><a href="#ai-studio">AI實驗室</a></li>
+            <li><a href="#tracks">展示牆</a></li>
+            <li><a href="#about">關於我</a></li>
+            <li><a href="#contact">聯絡合作</a></li>
+        </ul>
+    </header>
+
+    <!-- 主視覺區 -->
+    <section id="home">
+        <h1>智慧環境音樂調配系統</h1>
+        <p>此版本已全面導入柔和微醺色調。直接雙擊本機檔案即可任意切換、流暢播放 10 首完全不同的真實背景測試音訊！</p>
+        <a href="#ai-studio" class="btn-cta">🎧 進入控制台</a>
+    </section>
+
+    <!-- AI 空間生成與播放器 -->
+    <section id="ai-studio">
+        <h2 class="section-title">智慧音場實驗室</h2>
+        <p class="section-subtitle">客製化你的音樂場景，親身體驗 10 種截然不同的音訊震撼</p>
+        
+        <div class="ai-dashboard">
+            <div class="control-panel">
+                
+                <!-- 地點環境篩選 -->
+                <div class="panel-label">📍 1. 選擇模擬空間（環境地點）</div>
+                <div class="options-group location-group">
+                    <button class="select-btn active" onclick="selectLocation(this, 'cafe', '雨天咖啡廳', '混入窗外微雨聲景與輕微的瓷杯低語白噪音')">☕ 咖啡廳</button>
+                    <button class="select-btn" onclick="selectLocation(this, 'library', '虛擬圖書館', '注入高吸音、極度安靜且能聽見微弱呼吸聲的專注感')">📚 圖書館</button>
+                    <button class="select-btn" onclick="selectLocation(this, 'studio', '錄音工作室', '融合復古黑膠唱片旋轉時微弱的粗糙針頭刮痕暖流')">🎛️ 工作室</button>
+                    <button class="select-btn" onclick="selectLocation(this, 'cyberpunk', '賽博不夜城', '融入遠處磁浮車流與低頻電流聲聲景')">🌌 賽博不夜城</button>
+                </div>
+
+                <!-- 音樂風格篩選 (10種風格) -->
+                <div class="panel-label">🎵 2. 選擇試聽音樂風格 (10 種風格大擴充)</div>
+                <div class="options-group mood-group">
+                    <button class="select-btn active" onclick="selectMood(this, 'citypop', '浪漫 City Pop', '80s 經典 FM 復古合成器與清脆電鋼琴和弦')">🌆 City Pop</button>
+                    <button class="select-btn" onclick="selectMood(this, 'funk', '熱血 Funk', '強烈且跳躍的 Slap Bass 與 16 分音符吉他切音')">🎸 Funk 律動</button>
+                    <button class="select-btn" onclick="selectMood(this, 'lofi', '微醺 Lo-fi Beat', '輕柔溫慢的取樣爵士樂與低飽和度重拍')">🎧 Lo-fi 放鬆</button>
+                    <button class="select-btn" onclick="selectMood(this, 'retropop', '復古 Retro Pop', '充滿迪斯可大鼓撞擊與 90 年代華麗電子舞曲感')">⚡ Retro Pop</button>
+                    <button class="select-btn" onclick="selectMood(this, 'synthwave', '🔮 霓虹 Synthwave', '厚重的鋸齒波合成器與復古未來科幻漫遊感')">🔮 Synthwave</button>
+                    <button class="select-btn" onclick="selectMood(this, 'neosoul', '🥁 靈魂 Neo-Soul', '鬆軟的爵士和弦、慵懶貝斯與當代靈魂樂溫柔律動')">🥁 Neo-Soul</button>
+                    <button class="select-btn" onclick="selectMood(this, 'jazzhop', '☕ 慵懶 Jazz Hop', '融合經典薩克斯風爵士樂取樣與冷冽的嘻哈重碎拍')">🎷 Jazz Hop</button>
+                    <button class="select-btn" onclick="selectMood(this, 'futurefunk', '🕺 狂熱 Future Funk', '高能量的法式浩室(French House)與復古日系動漫採樣')">🕺 Future Funk</button>
+                    <button class="select-btn" onclick="selectMood(this, 'deephouse', '🌃 深夜 Deep House', '極極簡反覆催眠的 4/4 拍重低音與靈魂感的電子氛圍')">🌃 Deep House</button>
+                    <button class="select-btn" onclick="selectMood(this, 'ambient', '🌌 宇宙 Ambient', '完全移除節奏、純粹由漂浮襯底合成器交織的冥想音場')">🌌 Ambient Chill</button>
+                </div>
+
+                <div class="panel-label">3. 啟動智慧引擎</div>
+                <button class="btn-generate" onclick="queryLocalDatabase()">🪄 智慧比對並動態播放</button>
+            </div>
+
+            <div class="player-panel">
+                <div class="vinyl-wrapper">
+                    <div class="vinyl" id="vinylDisc">
+                        <div class="vinyl-center"></div>
+                    </div>
+                </div>
+                <div class="status-text" id="statusText">等待環境指令...</div>
+                <div class="style-display" id="styleDisplay">請由左側面板規劃你的空間與曲風</div>
+                
+                <div class="wave-container" id="waveVisual">
+                    <div class="wave-bar" style="height: 40%"></div>
+                    <div class="wave-bar" style="height: 70%"></div>
+                    <div class="wave-bar" style="height: 100%"></div>
+                    <div class="wave-bar" style="height: 60%"></div>
+                    <div class="wave-bar" style="height: 80%"></div>
+                    <div class="wave-bar" style="height: 30%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 音樂作品展示牆 -->
+    <section id="tracks">
+        <h2 class="section-title">動態音樂庫總覽</h2>
+        <p class="section-subtitle">下方列表由內建之 10 首曲目資料庫自動生成，展現優秀的資料分離架構</p>
+        <div class="music-grid" id="gridContainer">
+            <!-- 由底部 JavaScript 動態產生 -->
+        </div>
+    </section>
+
+    <!-- 關於我區塊 -->
+    <section id="about">
+        <h2 class="section-title">關於創作者</h2>
+        <p class="section-subtitle">Behind The Music</p>
+        <div class="about-content">
+            <div class="about-img"></div>
+            <div class="about-text">
+                <p>「音樂是生活的背景音樂，而共享則是靈魂的對話。」</p>
+                <p>我著迷於音符背後的故事，更著迷於每個人聽歌時的心境。在這裡，我不只分享自己耳機裡的日常，也期待遇見你私藏的旋律。</p>
+                <p>歡迎來到我的音樂角落，帶走我的推薦，也請留下你的私房好歌，讓我們用音樂當作相認的暗號。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡合作 -->
+    <section id="contact">
+        <h2 class="section-title">聯絡與合作邀約</h2>
+        <p class="section-subtitle">留下你的私房旋律，或開啟全新的音樂火花</p>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('感謝您的來信與暗號分享！(此為網頁範例功能)');">
+            <div class="form-group">
+                <input type="text" placeholder="您的姓名 / 團隊名稱" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="您的電子郵件" required>
+            </div>
+            <div class="form-group">
+                <textarea rows="5" placeholder="分享你的私房好歌給我，或者填寫合作邀約需求..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">送出暗號訊息</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Night Owl's Reverie Database System. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript 10軌智慧檢索核心 -->
+    <script>
+        const localMusicDatabase = [
+            { "title": "Midnight Cruise (午夜巡航)", "location_tags": ["cafe"], "style_tags": ["citypop"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", "description": "帶來經典的 80 年代都市感 FM 合成器與清脆電鋼琴和弦。", "cover": "🌆" },
+            { "title": "Slap & Dash (熱血奔馳)", "location_tags": ["studio", "cyberpunk"], "style_tags": ["funk"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3", "description": "充滿強烈且爆發力十足的 Slap Bass 與十六分音符吉他切音節奏。", "cover": "🎸" },
+            { "title": "Tokyo Raindrops (雨落東京)", "location_tags": ["library", "cafe"], "style_tags": ["lofi"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3", "description": "輕柔溫慢的取樣爵士樂與低飽和度重拍完美揉合。", "cover": "🎧" },
+            { "title": "Disco Cyber (迪斯可狂歡)", "location_tags": ["cyberpunk"], "style_tags": ["retropop"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3", "description": "華麗、高能量的大鼓打擊與滿滿的 90 年代復古舞池風華。", "cover": "⚡" },
+            { "title": "Neon Grid (霓虹矩陣)", "location_tags": ["studio"], "style_tags": ["synthwave"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3", "description": "科幻感十足的厚重復古復音合成器，展開宇宙未來巡航。", "cover": "🔮" },
+            { "title": "Smooth Vibe (慵懶夜色)", "location_tags": ["cafe"], "style_tags": ["neosoul"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3", "description": "當代放鬆首選，慵懶的貝斯線與爵士屬七和弦的輕柔摩擦。", "cover": "🥁" },
+            { "title": "Cafe Saxophone (咖啡館薩克斯)", "location_tags": ["cafe"], "style_tags": ["jazzhop"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3", "description": "經典復古爵士管樂採樣與都市嘻哈碎拍的迷人相遇。", "cover": "🎷" },
+            { "title": "Future Nostalgia (未來鄉愁)", "location_tags": ["cyberpunk"], "style_tags": ["futurefunk"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3", "description": "加速重塑的日系動漫 Vibe 與高壓法式電子濾波器效果。", "cover": "🕺" },
+            { "title": "Underground Pulse (地下脈搏)", "location_tags": ["studio"], "style_tags": ["deephouse"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3", "description": "催眠、深邃的 4/4 拍極簡重低音，專為深夜工作開工設計。", "cover": "🌃" },
+            { "title": "Cosmic Float (宇宙漂流)", "location_tags": ["library"], "style_tags": ["ambient"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3", "description": "完全移除所有敲擊打擊樂，純粹由如薄霧般的極光合成器包覆空間。", "cover": "🌌" }
+        ];
+
+        let audioPlayer = new Audio();
+        audioPlayer.loop = true;
+
+        let selectedLocTag = 'cafe';
+        let selectedLocName = '雨天咖啡廳';
+        let selectedLocEnv = '混入窗外微雨聲景與輕微的瓷杯低語白噪音';
+
+        let selectedStyleTag = 'citypop';
+        let selectedStyleName = '浪漫 City Pop';
+        let selectedGenreDesc = '80s 經典 FM 復古合成器與清脆電鋼琴和弦';
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderMusicGrid();
+        });
+
+        function selectLocation(element, tag, chName, envDesc) {
+            document.querySelectorAll('.location-group .select-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            selectedLocTag = tag;
+            selectedLocName = chName;
+            selectedLocEnv = envDesc;
+        }
+
+        function selectMood(element, tag, chName, desc) {
+            document.querySelectorAll('.mood-group .select-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            selectedStyleTag = tag;
+            selectedStyleName = chName;
+            selectedGenreDesc = desc;
+        }
+
+        function queryLocalDatabase() {
+            const status = document.getElementById('statusText');
+            const style = document.getElementById('styleDisplay');
+            const vinyl = document.getElementById('vinylDisc');
+            const wave = document.getElementById('waveVisual');
+
+            audioPlayer.pause();
+            status.innerText = "🤖 10軌資料庫極速檢索中...";
+            style.innerHTML = `篩選條件: <b>[${selectedLocTag}]</b> + <b>[${selectedStyleTag}]</b>...<br>正在交叉匹配對應的音樂與聲學組態...`;
+            vinyl.classList.remove('playing');
+            wave.classList.remove('active');
+
+            setTimeout(() => {
+                let matchedTrack = localMusicDatabase.find(track => 
+                    track.location_tags.includes(selectedLocTag) && track.style_tags.includes(selectedStyleTag)
+                );
+
+                if (!matchedTrack) {
+                    matchedTrack = localMusicDatabase.find(track => track.style_tags.includes(selectedStyleTag));
+                }
+
+                if (!matchedTrack) {
+                    matchedTrack = localMusicDatabase[0];
+                }
+
+                audioPlayer.src = matchedTrack.mp3_url;
+                
+                status.innerText = `🎵 音場渲染成功！`;
+                style.innerHTML = `<b>正在播放：</b>${matchedTrack.title}<br><b>情境：</b>${selectedLocName} — <small style="color:#7a748c;">${selectedLocEnv}</small><br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${matchedTrack.description}</span>`;
+                
+                vinyl.classList.add('playing');
+                wave.classList.add('active');
+                
+                audioPlayer.play().catch(error => {
+                    console.log("自動播放限制防禦：", error);
+                });
+            }, 1200);
+        }
+
+        function renderMusicGrid() {
+            const container = document.getElementById('gridContainer');
+            container.innerHTML = '';
+
+            localMusicDatabase.forEach(track => {
+                const card = document.createElement('div');
+                card.className = 'music-card';
+                card.innerHTML = `
+                    <div class="cover-art">${track.cover}</div>
+                    <h3>${track.title}</h3>
+                    <p style="color: #666; margin-bottom: 8px; font-size: 12px;">庫存標籤: ${track.location_tags.join(', ')} | ${track.style_tags.join(', ')}</p>
+                    <p>${track.description}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
