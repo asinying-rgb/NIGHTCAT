@@ -15,6 +15,6 @@
   { "title": "Future Nostalgia (未來鄉愁)", "location_tags": ["cyberpunk"], "style_tags": ["futurefunk"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3", "description": "加速重塑的日系動漫 Vibe 與高壓法式電子濾波器效果。", "cover": "🕺" },
   { "title": "Underground Pulse (地下脈搏)", "location_tags": ["studio"], "style_tags": ["deephouse"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3", "description": "催眠、深邃的 4/4 拍極簡重低音，專為深夜工作開工設計。", "cover": "🌃" },
   { "title": "Cosmic Float (宇宙漂流)", "location_tags": ["library"], "style_tags": ["ambient"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3", "description": "完全移除所有敲擊打擊樂，純粹由如薄霧般的極光合成器包覆空間。", "cover": "🌌" },
-  { "title": "極限交叉 (Crossfire Peak)", "location_tags": ["studio", "cyberpunk"], "style_tags": ["fitness", "rock"], "mp3_url": "song17.mp3", "description": "男女搖滾對唱搭配 130 BPM 重低音節奏，專為高強度有氧與重訓破紀錄設計。", "cover": "⚡"},
-  { "title": "城市脈衝 (Urban Pulse Dual)", "location_tags": ["cyberpunk"], "style_tags": ["fitness", "hiphop"], "mp3_url": "song18.mp3", "description": "男聲饒舌與女聲高亢旋律交織，重拍重低音強烈卡點跑步步頻。", "cover": "🏃‍♂️"},
+  { "title": "極限交叉 (Crossfire Peak)", "location_tags": ["studio", "cyberpunk"], "style_tags": ["fitness", "rock"], "mp3_url": "song17.mp3", "description": "男女搖滾對唱搭配 130 BPM 重低音節奏，專為高強度有氧與重訓破紀錄設計。", "cover": "⚡" },
+  { "title": "城市脈衝 (Urban Pulse Dual)", "location_tags": ["cyberpunk"], "style_tags": ["fitness", "hiphop"], "mp3_url": "song18.mp3", "description": "男聲饒舌與女聲高亢旋律交織，重拍重低音強烈卡點跑步步頻。", "cover": "跑" }
 ]
