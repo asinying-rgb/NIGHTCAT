@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>夜貓子的狂想 | Night Owl's Reverie</title>
     <style>
+        /* 🎨 全域變數：微醺馬卡龍復古配色 */
         :root {
             --bg-color: #0f0c1b;      
             --main-pink: #E55B85;     
@@ -264,7 +265,6 @@
         let selectedStyleName = '浪漫 City Pop';
 
         window.addEventListener('DOMContentLoaded', () => {
-            // 修正快取機制，強迫每一次都抓取最新 JSON 檔案內容
             fetch('database.json?v=' + new Date().getTime())
                 .then(response => {
                     if (!response.ok) throw new Error('找不到外部資料庫檔案 database.json');
@@ -292,7 +292,7 @@
             document.querySelectorAll('.mood-group .select-btn').forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
             selectedStyleTag = tag;
-            selectedStyleName = chName;
+            selectedStyleName = chName; // ⚡ 這裡成功紀錄被選取的曲風名稱
         }
 
         function queryLocalDatabase() {
@@ -305,7 +305,7 @@
 
             audioPlayer.pause();
             status.innerText = "🤖 JSON外部資料庫檢索中...";
-            style.innerHTML = `篩選條件: <b>[${selectedLocTag}]</b> + <b>[${selectedStyleTag}]</b>...`;
+            style.innerHTML = `篩選條件: <b>[${selectedLocName}]</b> + <b>[${selectedStyleName}]</b>...`;
             vinyl.classList.remove('playing');
             wave.classList.remove('active');
 
@@ -316,6 +316,7 @@
                     return;
                 }
 
+                // 🌟 精準交叉篩選
                 let matchedTrack = localMusicDatabase.find(track => 
                     track.location_tags.includes(selectedLocTag) && track.style_tags.includes(selectedStyleTag)
                 );
@@ -328,16 +329,19 @@
                     matchedTrack = localMusicDatabase[0];
                 }
 
+                // 🌟 核心關鍵修復：強迫瀏覽器重新加載乾淨的本地音訊路徑，阻絕快取卡死
                 audioPlayer.src = matchedTrack.mp3_url;
+                audioPlayer.load(); 
                 
                 status.innerText = `🎵 音場渲染成功！`;
-                style.innerHTML = `<b>正在播放：</b>${matchedTrack.title}<br><b>情境：</b>${selectedLocName} — <small style="color:#7d7890;">${selectedLocEnv}</small><br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${matchedTrack.description}</span>`;
+                style.innerHTML = `<b>正在播放：</b>${matchedTrack.title}<br><b>風格情境：</b>${selectedStyleName}<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${matchedTrack.description}</span>`;
                 
                 vinyl.classList.add('playing');
                 wave.classList.add('active');
                 
+                // 🌟 自動播放安全策略防禦
                 audioPlayer.play().catch(error => {
-                    console.log("自動播放安全防禦：", error);
+                    console.log("自動播放安全防禦提示：請使用者先與網頁點擊互動。", error);
                 });
             }, 1200);
         }
