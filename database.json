@@ -1,0 +1,18 @@
+[
+  { "title": "都市漫遊 (Urban Cruise)", "location_tags": ["cyberpunk"], "style_tags": ["citypop"], "mp3_url": "song1.mp3", "description": "伴隨不夜城的霓虹微光，開啟一段日系浪漫 City Pop 冒險。", "cover": "🌆" },
+  { "title": "節奏狂想 (Groove Rhapsody)", "location_tags": ["studio"], "style_tags": ["funk"], "mp3_url": "song2.mp3", "description": "極具躍動感的 Slap 貝斯律動，瞬間點燃深夜的工作靈感。", "cover": "🎸" },
+  { "title": "午後微醺 (Midnight Cafe)", "location_tags": ["cafe"], "style_tags": ["lofi"], "mp3_url": "song3.mp3", "description": "溫慢醇厚的雨天咖啡廳特調。低飽和度的 Lo-fi 顆粒重拍，是放鬆靈魂的解藥。", "cover": "🎧" },
+  { "title": "未來脈絡 (Future Core)", "location_tags": ["cyberpunk"], "style_tags": ["synthwave"], "mp3_url": "song4.mp3", "description": "復古未來賽博藍調。層層疊加的厚重復古鋸齒波，完美切換夜貓子的狂想視角。", "cover": "🔮" },
+  { "title": "深夜讀白 (Midnight Reader)", "location_tags": ["library"], "style_tags": ["jazzhop"], "mp3_url": "song5.mp3", "description": "專為深夜專注調配。慵懶的薩克斯風爵士旋律，交織冷冽的都市嘻哈重碎拍。", "cover": "🎷" },
+  { "title": "靈魂共鳴 (Soul Resonance)", "location_tags": ["cafe"], "style_tags": ["neosoul"], "mp3_url": "song6.mp3", "description": "觸動心弦的溫柔私語。鬆軟的爵士屬七和弦，帶來當代靈魂樂最愜意的律動。", "cover": "🥁" },
+  { "title": "Midnight Cruise (午夜巡航)", "location_tags": ["cafe"], "style_tags": ["citypop"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", "description": "帶來經典的 80 年代都市感 FM 合成器與清脆電鋼琴和弦。", "cover": "🏙️" },
+  { "title": "Slap & Dash (熱血奔馳)", "location_tags": ["studio"], "style_tags": ["funk"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3", "description": "充滿強烈且爆發力十足的 Slap Bass 與十六分音符吉他切音節奏。", "cover": "⚡" },
+  { "title": "Tokyo Raindrops (雨落東京)", "location_tags": ["library"], "style_tags": ["lofi"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3", "description": "輕柔溫慢的取樣爵士樂與低飽和度重拍完美揉合。", "cover": "🌧️" },
+  { "title": "Disco Cyber (迪斯可狂歡)", "location_tags": ["cyberpunk"], "style_tags": ["retropop"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3", "description": "華麗、高能量的大鼓打擊與滿滿的 90 年代復古舞池風華。", "cover": "💃" },
+  { "title": "Neon Grid (霓虹矩陣)", "location_tags": ["studio"], "style_tags": ["synthwave"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3", "description": "科幻感十足的厚重復古復音合成器，展開宇宙未來巡航。", "cover": "🛸" },
+  { "title": "Smooth Vibe (慵懶夜色)", "location_tags": ["cafe"], "style_tags": ["neosoul"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3", "description": "當代放鬆首選，慵懶的貝斯線與爵士屬七和弦的輕柔摩擦。", "cover": "🥁" },
+  { "title": "Cafe Saxophone (咖啡館薩克斯)", "location_tags": ["cafe"], "style_tags": ["jazzhop"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3", "description": "經典復古爵士管樂採樣與都市嘻哈碎拍的迷人相遇。", "cover": "🎷" },
+  { "title": "Future Nostalgia (未來鄉愁)", "location_tags": ["cyberpunk"], "style_tags": ["futurefunk"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3", "description": "加速重塑的日系動漫 Vibe 與高壓法式電子濾波器效果。", "cover": "🕺" },
+  { "title": "Underground Pulse (地下脈搏)", "location_tags": ["studio"], "style_tags": ["deephouse"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3", "description": "催眠、深邃的 4/4 拍極簡重低音，專為深夜工作開工設計。", "cover": "🌃" },
+  { "title": "Cosmic Float (宇宙漂流)", "location_tags": ["library"], "style_tags": ["ambient"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3", "description": "完全移除所有敲擊打擊樂，純粹由如薄霧般的極光合成器包覆空間。", "cover": "🌌" }
+]
