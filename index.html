@@ -171,7 +171,7 @@
                     <button class="select-btn" onclick="selectLocation(this, 'cyberpunk', '賽博不夜城', '融入遠處磁浮車流與低頻電流聲聲景')">🌌 賽博不夜城</button>
                 </div>
 
-                <div class="panel-label">🎵 2. 選擇試聽音樂風格</div>
+                <div class="panel-label">🎵 2. 選擇試聽音樂風格 (已包含專屬運動曲風)</div>
                 <div class="options-group mood-group">
                     <button class="select-btn active" onclick="selectMood(this, 'citypop', '浪漫 City Pop')">🌆 City Pop</button>
                     <button class="select-btn" onclick="selectMood(this, 'funk', '熱血 Funk')">🎸 Funk 律動</button>
@@ -183,6 +183,7 @@
                     <button class="select-btn" onclick="selectMood(this, 'futurefunk', '🕺 狂熱 Future Funk')">🕺 Future Funk</button>
                     <button class="select-btn" onclick="selectMood(this, 'deephouse', '🌃 深夜 Deep House')">🌃 Deep House</button>
                     <button class="select-btn" onclick="selectMood(this, 'ambient', '🌌 宇宙 Ambient')">🌌 Ambient Chill</button>
+                    <button class="select-btn" onclick="selectMood(this, 'fitness', '⚡ 燃脂運動節奏')">🏃‍♂️ Fitness 專區</button>
                 </div>
 
                 <div class="panel-label">3. 啟動智慧引擎</div>
@@ -251,7 +252,7 @@
     </footer>
 
     <script>
-        let localMusicDatabase = []; // 預設空白，待會自動去抓檔案
+        let localMusicDatabase = []; 
 
         let audioPlayer = new Audio();
         audioPlayer.loop = true;
@@ -262,16 +263,16 @@
         let selectedStyleTag = 'citypop';
         let selectedStyleName = '浪漫 City Pop';
 
-        // 🚀 核心大改版：當網頁一打開，主動向隔壁抓取 database.json
         window.addEventListener('DOMContentLoaded', () => {
-            fetch('database.json')
+            // 修正快取機制，強迫每一次都抓取最新 JSON 檔案內容
+            fetch('database.json?v=' + new Date().getTime())
                 .then(response => {
                     if (!response.ok) throw new Error('找不到外部資料庫檔案 database.json');
                     return response.json();
                 })
                 .then(data => {
-                    localMusicDatabase = data; // 成功把資料灌進網頁大腦
-                    renderMusicGrid();         // 自動畫出展示牆
+                    localMusicDatabase = data; 
+                    renderMusicGrid();         
                 })
                 .catch(error => {
                     console.error('資料庫連線失敗：', error);
