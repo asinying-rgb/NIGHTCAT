@@ -8,7 +8,7 @@
   { "title": "偷閒時光 (Lazy Tea Time)", "location_tags": ["cafe", "studio"], "style_tags": ["lofi"], "mp3_url": "song7.mp3", "description": "難得休假，輕鬆喝著下午茶。慵懶微醺的女聲爵士哼唱，讓你瞬間忘記所有煩惱。", "cover": "🍰" },
   { "title": "咖啡香氣 (Espresso Romance)", "location_tags": ["cafe"], "style_tags": ["neosoul"], "mp3_url": "song8.mp3", "description": "節奏慵懶的當代女聲。窩在咖啡廳角落，伴隨鬆軟和弦與迷人煙燻嗓音忘卻塵囂。", "cover": "☕" },
   { "title": "極限交叉 (Crossfire Peak)", "location_tags": ["studio"], "style_tags": ["fitness"], "mp3_url": "song17.mp3", "description": "男女搖滾對唱搭配 130 BPM 重低音節奏，專為高強度有氧與重訓破紀錄設計。", "cover": "⚡" },
-  { "title": "城市脈衝 (Urban Pulse Dual)", "location_tags": ["cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song18.mp3", "description": "男聲饒舌與女聲高亢旋律交織，重拍重低音強烈卡點跑步步頻。", "cover": "🏃" },
+  { "title": "城市脈衝 (Urban Pulse Dual)", "location_tags": ["cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song18.mp3", "description": "男聲饒舌與女聲高亢旋律交織，重拍重低音強烈卡點跑步步頻。", "cover": "🏃‍♂️" },
   { "title": "極速覺醒 (Velocity Awakening)", "location_tags": ["library"], "style_tags": ["fitness"], "mp3_url": "song19.mp3", "description": "打破靜謐！用電子重拍與男女極速對唱，瞬間燃爆身體的最後一滴汗水。", "cover": "🔥" },
   { "title": "脈衝風暴 (Pulse Storm)", "location_tags": ["cafe"], "style_tags": ["fitness"], "mp3_url": "song20.mp3", "description": "高能量男高音與女聲狂野合唱，重磅貝斯完美適配間歇性重訓與衝刺。", "cover": "🌪️" },
   { "title": "Midnight Cruise (午夜巡航)", "location_tags": ["cafe"], "style_tags": ["citypop"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", "description": "帶來經典的 80 年代都市感 FM 合成器與清脆電鋼琴和弦。", "cover": "🏙️" },
