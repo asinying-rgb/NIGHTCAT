@@ -263,10 +263,10 @@
             { "title": "極速覺醒 (Velocity Awakening)", "location_tags": ["library"], "style_tags": ["fitness"], "mp3_url": "song11.mp3", "description": "打破靜謐！用電子重拍與男女極速對唱，提起振奮精神克服沉悶。", "cover": "💥" },
             { "title": "脈衝風暴 (Pulse Storm)", "location_tags": ["cafe"], "style_tags": ["fitness"], "mp3_url": "song12.mp3", "description": "高能量男高音與女聲狂野合唱，重磅鼓點完美適配間歇性衝刺與深蹲挑戰。", "cover": "🌪️" },
             { "title": "超越極限 (Beyond limits)", "location_tags": ["studio", "cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song13.mp3", "description": "128 BPM 的超強重低音重拍！當高亢的女聲與爆發力十足的饒舌男聲交織，瞬間灌滿你的運動細胞，挑戰極限不再有藉口。", "cover": "⚡" },
-            { "title": "熱血狂飆 (Hyperdrive)", "location_tags": ["cafe", "cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song14.mp3", "description": "專為高強度間歇訓練與重訓破紀錄調配。撕裂感十足的電子合成器搭配男女雙主唱極速對唱，提起你今晚最振奮的精神！", "cover": "🔥" }
+            { "title": "熱血狂飆 (Hyperdrive)", "location_tags": ["cafe", "cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song14.mp3", "description": "專為高強度間歇訓練與重訓破紀錄調配。撕裂感十足的電子合成器搭配男女雙主唱極速對唱，提起今晚最振奮的精神！", "cover": "🔥" }
         ];
 
-        // 🌟 官方指定首席公播退路主打歌
+        // 🌟 備用公播主打歌
         const publicTrackInfo = {
             "title": "Pavement Afterglow (都市餘暉)",
             "mp3_url": "public.mp3",
@@ -314,33 +314,38 @@
             wave.classList.remove('active');
 
             setTimeout(() => {
-                let usePublicBackup = false;
-
-                // 1. 優先精準配對（空間＋曲風）
+                // 1. 優先進行精準交叉配對
                 let matchedTrack = localMusicDatabase.find(track => 
                     track.location_tags.includes(selectedLocTag) && track.style_tags.includes(selectedStyleTag)
                 );
 
-                // 2. 運動風格安全過濾機制
+                // 🌟 2. 運動專區防寂靜地雷升級邏輯：
                 if (selectedStyleTag === 'fitness') {
-                    // 如果選了運動，但抽到未完成的 11 或 12 號，就自動切換到公播備份
+                    // 找出倉庫中「目前肯定有上傳實體檔案」的四大金剛 (9, 10, 13, 14 號)
+                    let absoluteAvailableTracks = localMusicDatabase.filter(track => 
+                        track.style_tags.includes('fitness') && 
+                        ['song9.mp3', 'song10.mp3', 'song13.mp3', 'song14.mp3'].includes(track.mp3_url)
+                    );
+
+                    // 如果沒對應到，或者是正好精準配對到了目前尚無實體檔案的 11 號或 12 號
                     if (!matchedTrack || ['song11.mp3', 'song12.mp3'].includes(matchedTrack.mp3_url)) {
-                        usePublicBackup = true;
+                        if (absoluteAvailableTracks.length > 0) {
+                            // 💡 核心轉彎：直接從絕對有聲音的 4 首中隨機挑選一首頂替！
+                            matchedTrack = absoluteAvailableTracks[Math.floor(Math.random() * absoluteAvailableTracks.length)];
+                        }
                     }
                 }
 
-                // 3. 次要風格配對（當一般曲風沒有對應到特定空間時）
-                if (!matchedTrack && selectedStyleTag !== 'fitness') {
+                // 3. 次要曲風配對（針對非運動的其他曲風組合）
+                if (!matchedTrack) {
                     let tracksWithStyle = localMusicDatabase.filter(track => track.style_tags.includes(selectedStyleTag));
                     if (tracksWithStyle.length > 0) {
                         matchedTrack = tracksWithStyle[Math.floor(Math.random() * tracksWithStyle.length)];
-                    } else {
-                        usePublicBackup = true;
                     }
                 }
 
-                // 🌟 4. 智慧公播退路核心：只要觸發空缺或條件不足，100% 導向播放公播歌
-                if (usePublicBackup || !matchedTrack) {
+                // 4. 如果千方百計依然空缺，則滑入公播退路主打歌機制
+                if (!matchedTrack) {
                     audioPlayer.src = publicTrackInfo.mp3_url;
                     status.innerText = `📻 歡迎收聽夜貓子電台！`;
                     style.innerHTML = `<b>正在播放：</b>${publicTrackInfo.title}<br><b>當前氣氛：</b>${selectedStyleName} (公播推薦)<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${publicTrackInfo.description}</span>`;
@@ -356,7 +361,7 @@
                 wave.classList.add('active');
                 
                 audioPlayer.play().catch(error => {
-                    console.log("自動播放提示：活人點擊互動後方可解鎖聲音", error);
+                    console.log("自動播放安全機制提示", error);
                 });
             }, 1200);
         }
