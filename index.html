@@ -144,47 +144,47 @@
         <div class="logo">Night Owl's Reverie</div>
         <ul class="nav-links">
             <li><a href="#home">首頁</a></li>
-            <li><a href="#ai-studio">AI實驗室</a></li>
-            <li><a href="#tracks">展示牆</a></li>
+            <li><a href="#ai-studio">空間點播</a></li>
+            <li><a href="#tracks">我的歌單</a></li>
             <li><a href="#about">關於我</a></li>
             <li><a href="#contact">聯絡合作</a></li>
         </ul>
     </header>
 
     <section id="home">
-        <h1>智慧環境音樂調配系統</h1>
-        <p>10首豪華大編制！包含 6 首原創環境神曲與 4 首強烈重低音運動男女對唱單曲，體驗極致音場！</p>
-        <a href="#ai-studio" class="btn-cta">🎧 進入控制台</a>
+        <h1>夜貓子的深夜電台</h1>
+        <p>用一首歌的時間，帶你晃到世界的某個角落。這裡持續更新我私藏的原創音樂，從迷人的男聲、慵懶的女聲哼唱到高能量的男女對唱應有盡有。點個空間、選個心情，聽聽今晚哪首歌最懂你。</p>
+        <a href="#ai-studio" class="btn-cta">🎧 點播一首今晚的歌</a>
     </section>
 
     <section id="ai-studio">
-        <h2 class="section-title">智慧音場實驗室</h2>
-        <p class="section-subtitle">客製化你的音樂場景，體驗由 6+4 軌極致氛圍交織而成的音訊世界</p>
+        <h2 class="section-title">今天想在哪裡聽音樂？</h2>
+        <p class="section-subtitle">給自己調一杯專屬今晚的音樂特調吧！先選一個你想待的空間，再挑一個對味的音樂風格。</p>
         
         <div class="ai-dashboard">
             <div class="control-panel">
                 
-                <div class="panel-label">📍 1. 選擇模擬空間（環境地點）</div>
+                <div class="panel-label">📍 1. 挑選你想待的空間</div>
                 <div class="options-group location-group">
-                    <button class="select-btn active" onclick="selectLocation(this, 'cafe', '雨天咖啡廳', '混入窗外微雨聲景與輕微的瓷杯低語白噪音')">☕ 咖啡廳</button>
-                    <button class="select-btn" onclick="selectLocation(this, 'library', '虛擬圖書館', '注入高吸音、極度安靜且能聽見微弱呼吸聲的專注感')">📚 圖書館</button>
-                    <button class="select-btn" onclick="selectLocation(this, 'studio', '錄音工作室', '融合復古黑膠唱片旋轉時微弱的粗糙針頭刮痕暖流')">🎛️ 工作室</button>
-                    <button class="select-btn" onclick="selectLocation(this, 'cyberpunk', '賽博不夜城', '融入遠處磁浮車流與低頻電流聲聲景')">🌌 賽博不夜城</button>
+                    <button class="select-btn active" onclick="selectLocation(this, 'cafe', '雨天咖啡廳', '聽得到窗外微雨聲與輕微的瓷杯敲擊聲')">☕ 咖啡廳</button>
+                    <button class="select-btn" onclick="selectLocation(this, 'library', '安靜圖書館', '極度安靜、讓人想專注讀一本書的角落')">📚 圖書館</button>
+                    <button class="select-btn" onclick="selectLocation(this, 'studio', '音樂工作室', '帶著黑膠唱片轉動時微弱的溫暖刮痕感')">🎛️ 工作室</button>
+                    <button class="select-btn" onclick="selectLocation(this, 'cyberpunk', '不夜霓虹城', '遠處微弱的車流與霓虹閃爍的深夜街頭')">🌌 賽博不夜城</button>
                 </div>
 
-                <div class="panel-label">🎵 2. 選擇試聽音樂風格</div>
+                <div class="panel-label">🎵 2. 挑一個對味的心情與風格</div>
                 <div class="options-group mood-group">
                     <button class="select-btn active" onclick="selectMood(this, 'citypop', '浪漫 City Pop')">🌆 City Pop</button>
-                    <button class="select-btn" onclick="selectMood(this, 'funk', '熱血 Funk')">🎸 Funk 律動</button>
-                    <button class="select-btn" onclick="selectMood(this, 'lofi', '微醺 Lo-fi Beat')">🎧 Lo-fi 放鬆</button>
+                    <button class="select-btn" onclick="selectMood(this, 'funk', '熱血 Funk 律動')">🎸 Funk 律動</button>
+                    <button class="select-btn" onclick="selectMood(this, 'lofi', '🍵 下午茶偷閒放鬆 (Lo-fi)')">🎧 Lo-fi 氛圍</button>
                     <button class="select-btn" onclick="selectMood(this, 'synthwave', '🔮 霓虹 Synthwave')">🔮 Synthwave</button>
                     <button class="select-btn" onclick="selectMood(this, 'jazzhop', '☕ 慵懶 Jazz Hop')">🎷 Jazz Hop</button>
-                    <button class="select-btn" onclick="selectMood(this, 'neosoul', '🥁 靈魂 Neo-Soul')">🥁 Neo-Soul</button>
-                    <button class="select-btn" onclick="selectMood(this, 'fitness', '⚡ 燃脂運動節奏')">🏃‍♂️ Fitness 男女對唱專區</button>
+                    <button class="select-btn" onclick="selectMood(this, 'neosoul', '🍰 愜意慵懶女聲 (Neo-Soul)')">🥁 Neo-Soul</button>
+                    <button class="select-btn" onclick="selectMood(this, 'fitness', '⚡ 運動重拍合唱專區')">🏃‍♂️ Fitness 專區</button>
                 </div>
 
-                <div class="panel-label">3. 啟動智慧引擎</div>
-                <button class="btn-generate" onclick="queryLocalDatabase()">🪄 智慧比對並動態播放</button>
+                <div class="panel-label">3. 播音員準備就位</div>
+                <button class="btn-generate" onclick="queryLocalDatabase()">🪄 倒杯特調，開始放音樂</button>
             </div>
 
             <div class="player-panel">
@@ -193,8 +193,8 @@
                         <div class="vinyl-center"></div>
                     </div>
                 </div>
-                <div class="status-text" id="statusText">等待環境指令...</div>
-                <div class="style-display" id="styleDisplay">請由左側面板規劃你的空間與曲風</div>
+                <div class="status-text" id="statusText">正在挑選黑膠唱片...</div>
+                <div class="style-display" id="styleDisplay">請點選左側你喜歡的空間與心情風格</div>
                 
                 <div class="wave-container" id="waveVisual">
                     <div class="wave-bar" style="height: 40%"></div>
@@ -209,8 +209,8 @@
     </section>
 
     <section id="tracks">
-        <h2 class="section-title">動態音樂庫總覽</h2>
-        <p class="section-subtitle">精心收錄原創大作與專屬強烈運動歌曲</p>
+        <h2 class="section-title">我的私房歌單全紀錄</h2>
+        <p class="section-subtitle">這裡躺著我所有的音樂收藏，包含豐富的男聲、女聲，以及讓人心跳加速的運動重拍，歡迎隨意翻閱。</p>
         <div class="music-grid" id="gridContainer"></div>
     </section>
 
@@ -245,11 +245,10 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Night Owl's Reverie Database System. All Rights Reserved.</p>
+        <p>&copy; 2026 Night Owl's Reverie. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // 🚀 核心內嵌式高穩定資料庫：包含 6 首原創 + 4 首運動對唱歌
         const localMusicDatabase = [
             { "title": "都市漫遊 (Urban Cruise)", "location_tags": ["cyberpunk"], "style_tags": ["citypop"], "mp3_url": "song1.mp3", "description": "伴隨不夜城的霓虹微光，開啟一段日系浪漫 City Pop 冒險。", "cover": "🌆" },
             { "title": "節奏狂想 (Groove Rhapsody)", "location_tags": ["studio"], "style_tags": ["funk"], "mp3_url": "song2.mp3", "description": "極具躍動感的 Slap 貝斯律動，瞬間點燃深夜的工作靈感。", "cover": "🎸" },
@@ -257,12 +256,22 @@
             { "title": "未來脈絡 (Future Core)", "location_tags": ["cyberpunk"], "style_tags": ["synthwave"], "mp3_url": "song4.mp3", "description": "復古未來賽博藍調。層層疊加的厚重復古鋸齒波，完美切換夜貓子的狂想視角。", "cover": "🔮" },
             { "title": "深夜讀白 (Midnight Reader)", "location_tags": ["library"], "style_tags": ["jazzhop"], "mp3_url": "song5.mp3", "description": "專為深夜專注調配。慵懶的薩克斯風爵士旋律，交織冷冽的都市嘻哈重碎拍。", "cover": "🎷" },
             { "title": "靈魂共鳴 (Soul Resonance)", "location_tags": ["cafe"], "style_tags": ["neosoul"], "mp3_url": "song6.mp3", "description": "觸動心弦的溫柔私語。鬆軟的爵士屬七和弦，帶來當代靈魂樂最愜意的律動。", "cover": "🥁" },
-            
-            /* 🏃‍♂️ 專屬強烈運動男女對唱專區（4首） */
+            { "title": "偷閒時光 (Lazy Tea Time)", "location_tags": ["cafe", "studio"], "style_tags": ["lofi"], "mp3_url": "song7.mp3", "description": "難得休假，輕鬆喝著下午茶。慵懶微醺的女聲爵士哼唱，讓你瞬間忘記所有煩惱。", "cover": "🍰" },
+            { "title": "咖啡香氣 (Espresso Romance)", "location_tags": ["cafe"], "style_tags": ["neosoul"], "mp3_url": "song8.mp3", "description": "節奏慵懶的當代女聲。窩在咖啡廳角落，伴隨鬆軟和弦與迷人煙燻嗓音忘卻塵囂。", "cover": "☕" },
             { "title": "極限交叉 (Crossfire Peak)", "location_tags": ["studio"], "style_tags": ["fitness"], "mp3_url": "song17.mp3", "description": "男女搖滾對唱搭配 130 BPM 重低音節奏，專為高強度有氧與重訓破紀錄設計。", "cover": "⚡" },
             { "title": "城市脈衝 (Urban Pulse Dual)", "location_tags": ["cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song18.mp3", "description": "男聲饒舌與女聲高亢旋律交織，重拍重低音強烈卡點跑步步頻。", "cover": "🏃‍♂️" },
             { "title": "極速覺醒 (Velocity Awakening)", "location_tags": ["library"], "style_tags": ["fitness"], "mp3_url": "song19.mp3", "description": "打破靜謐！用電子重拍與男女極速對唱，瞬間燃爆身體的最後一滴汗水。", "cover": "🔥" },
-            { "title": "脈衝風暴 (Pulse Storm)", "location_tags": ["cafe"], "style_tags": ["fitness"], "mp3_url": "song20.mp3", "description": "高能量男高音與女聲狂野合唱，重磅貝斯完美適配間歇性重訓與衝刺。", "cover": "🌪️" }
+            { "title": "脈衝風暴 (Pulse Storm)", "location_tags": ["cafe"], "style_tags": ["fitness"], "mp3_url": "song20.mp3", "description": "高能量男高音與女聲狂野合唱，重磅貝斯完美適配間歇性重訓與衝刺。", "cover": "🌪️" },
+            { "title": "Midnight Cruise (午夜巡航)", "location_tags": ["cafe"], "style_tags": ["citypop"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", "description": "帶來經典的 80 年代都市感 FM 合成器與清脆電鋼琴和弦。", "cover": "🏙️" },
+            { "title": "Slap & Dash (熱血奔馳)", "location_tags": ["studio"], "style_tags": ["funk"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3", "description": "充滿強烈且爆發力十足的 Slap Bass 與十六分音符吉他切音節奏。", "cover": "⚡" },
+            { "title": "Tokyo Raindrops (雨落東京)", "location_tags": ["library"], "style_tags": ["lofi"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3", "description": "輕微溫慢的取樣爵士樂與低飽和度重拍完美揉合。", "cover": "🌧️" },
+            { "title": "Disco Cyber (迪斯可狂歡)", "location_tags": ["cyberpunk"], "style_tags": ["retropop"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3", "description": "華麗、高能量的大鼓打擊與滿滿的 90 年代復古舞池風華。", "cover": "💃" },
+            { "title": "Neon Grid (霓虹矩陣)", "location_tags": ["studio"], "style_tags": ["synthwave"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3", "description": "科幻感十足的厚重復古復音合成器，展開宇宙未來巡航。", "cover": "🛸" },
+            { "title": "Smooth Vibe (慵懶夜色)", "location_tags": ["cafe"], "style_tags": ["neosoul"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3", "description": "當代放鬆首選，慵懶的貝斯線與爵士屬七和弦的輕柔摩擦。", "cover": "🥁" },
+            { "title": "Cafe Saxophone (咖啡館薩克斯)", "location_tags": ["cafe"], "style_tags": ["jazzhop"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3", "description": "經典復古爵士管樂採樣與都市嘻哈碎拍的迷人相遇。", "cover": "🎷" },
+            { "title": "Future Nostalgia (未來鄉愁)", "location_tags": ["cyberpunk"], "style_tags": ["futurefunk"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3", "description": "加速重塑的日系動漫 Vibe 與高壓法式電子濾波器效果。", "cover": "🕺" },
+            { "title": "Underground Pulse (地下脈搏)", "location_tags": ["studio"], "style_tags": ["deephouse"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3", "description": "催眠、深邃的 4/4 拍極簡重低音，專為深夜工作開工設計。", "cover": "🌃" },
+            { "title": "Cosmic Float (宇宙漂流)", "location_tags": ["library"], "style_tags": ["ambient"], "mp3_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3", "description": "完全移除所有敲擊打擊樂，純粹由如薄霧般的極光合成器包覆空間。", "cover": "🌌" }
         ];
 
         let audioPlayer = new Audio();
@@ -270,20 +279,19 @@
 
         let selectedLocTag = 'cafe';
         let selectedLocName = '雨天咖啡廳';
-        let selectedLocEnv = '混入窗外微雨聲景與輕微的瓷杯低語白噪音';
         let selectedStyleTag = 'citypop';
         let selectedStyleName = '浪漫 City Pop';
 
+        // 🌟 網頁一打開，立刻繪製清單，絕不等待與報錯
         window.addEventListener('DOMContentLoaded', () => {
-            renderMusicGrid();
+            renderMusicGrid();         
         });
 
-        function selectLocation(element, tag, chName, envDesc) {
+        function selectLocation(element, tag, chName) {
             document.querySelectorAll('.location-group .select-btn').forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
             selectedLocTag = tag;
             selectedLocName = chName;
-            selectedLocEnv = envDesc;
         }
 
         function selectMood(element, tag, chName) {
@@ -302,23 +310,27 @@
             if(!status || !style || !vinyl || !wave) return;
 
             audioPlayer.pause();
-            status.innerText = "🤖 智慧引擎匹配中...";
-            style.innerHTML = `篩選條件: <b>[${selectedLocName}]</b> + <b>[${selectedStyleName}]</b>...`;
+            status.innerText = "☕ 正在幫你從架上挑選黑膠...";
+            style.innerHTML = `正在為你營造 <b>[${selectedLocName}]</b> 的 <b>[${selectedStyleName}]</b> 氛圍...`;
             vinyl.classList.remove('playing');
             wave.classList.remove('active');
 
             setTimeout(() => {
-                // 優先比對空間與曲風
+                // 1. 優先精準配對：同時符合【空間標籤】與【風格標籤】
                 let matchedTrack = localMusicDatabase.find(track => 
                     track.location_tags.includes(selectedLocTag) && track.style_tags.includes(selectedStyleTag)
                 );
 
-                // 如果空間沒對上，就直接配對曲風
+                // 2. 次要配對：如果該空間沒有這首歌，就直接在全部收藏中撈取符合【風格標籤】的所有歌曲（實現隨機靈活切換）
                 if (!matchedTrack) {
-                    matchedTrack = localMusicDatabase.find(track => track.style_tags.includes(selectedStyleTag));
+                    let tracksWithStyle = localMusicDatabase.filter(track => track.style_tags.includes(selectedStyleTag));
+                    if (tracksWithStyle.length > 0) {
+                        // 隨機抽取一首符合該曲風的歌（例如不同空間切換 Fitness，會聽到不同的對唱歌！）
+                        matchedTrack = tracksWithStyle[Math.floor(Math.random() * tracksWithStyle.length)];
+                    }
                 }
 
-                // 防呆：如果完全沒對上，播第一首
+                // 3. 終極防呆：萬一真的找不到，就播第一首
                 if (!matchedTrack) {
                     matchedTrack = localMusicDatabase[0];
                 }
@@ -326,16 +338,16 @@
                 audioPlayer.src = matchedTrack.mp3_url;
                 audioPlayer.load();
                 
-                status.innerText = `🎵 音場渲染成功！`;
-                style.innerHTML = `<b>正在播放：</b>${matchedTrack.title}<br><b>風格情境：</b>${selectedStyleName}<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${matchedTrack.description}</span>`;
+                status.innerText = `✨ 唱針落下了！`;
+                style.innerHTML = `<b>正在播放：</b>${matchedTrack.title}<br><b>當前氣氛：</b>${selectedStyleName}<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${matchedTrack.description}</span>`;
                 
                 vinyl.classList.add('playing');
                 wave.classList.add('active');
                 
                 audioPlayer.play().catch(error => {
-                    console.log("自動播放安全機制提示：", error);
+                    console.log("自動播放提示：需要活人點擊互動解鎖音訊權限", error);
                 });
-            }, 1000);
+            }, 1200);
         }
 
         function renderMusicGrid() {
@@ -349,7 +361,22 @@
                 card.innerHTML = `
                     <div class="cover-art">${track.cover}</div>
                     <h3>${track.title}</h3>
-                    <p style="color: #7d7890; margin-bottom: 8px; font-size: 12px;">庫存標籤: ${track.location_tags.join(', ')} | ${track.style_tags.join(', ')}</p>
+                    <p style="color: #7d7890; margin-bottom: 8px; font-size: 12px;">收藏情境: ${track.location_tags.map(t => {
+                        if(t==='cafe') return '咖啡廳';
+                        if(t==='library') return '圖書館';
+                        if(t==='studio') return '工作室';
+                        if(t==='cyberpunk') return '賽博城';
+                        return t;
+                    }).join(', ')} | ${track.style_tags.map(s => {
+                        if(s==='citypop') return 'City Pop';
+                        if(s==='funk') return 'Funk 律動';
+                        if(s==='lofi') return 'Lo-fi 放鬆';
+                        if(s==='synthwave') return 'Synthwave';
+                        if(s==='jazzhop') return 'Jazz Hop';
+                        if(s==='neosoul') return 'Neo-Soul';
+                        if(s==='fitness') return '運動重拍';
+                        return s;
+                    }).join(', ')}</p>
                     <p>${track.description}</p>
                 `;
                 container.appendChild(card);
