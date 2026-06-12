@@ -164,27 +164,27 @@
         <div class="ai-dashboard">
             <div class="control-panel">
                 
-                <div class="panel-label">📍 1. 挑選你想待的空間</div>
+                <div class="panel-label">📍 1. 挑選你想待的空間 | Select Location</div>
                 <div class="options-group location-group">
-                    <button class="select-btn active" onclick="selectLocation(this, 'cafe', '雨天咖啡廳')">☕ 咖啡廳</button>
-                    <button class="select-btn" onclick="selectLocation(this, 'library', '安靜圖書館')">📚 圖書館</button>
-                    <button class="select-btn" onclick="selectLocation(this, 'studio', '音樂工作室')">🎛️ 工作室</button>
-                    <button class="select-btn" onclick="selectLocation(this, 'cyberpunk', '不夜霓虹城')">🌌 不夜霓虹城</button>
+                    <button class="select-btn active" onclick="selectLocation(this, 'cafe', '雨天咖啡廳 | Midnight Cafe')">☕ 雨天咖啡廳 | Midnight Cafe</button>
+                    <button class="select-btn" onclick="selectLocation(this, 'library', '安靜圖書館 | Quiet Library')">📚 安靜圖書館 | Quiet Library</button>
+                    <button class="select-btn" onclick="selectLocation(this, 'studio', '音樂工作室 | Music Studio')">🎛️ 音樂工作室 | Music Studio</button>
+                    <button class="select-btn" onclick="selectLocation(this, 'cyberpunk', '不夜霓虹城 | Neon Cyber City')">🌌 不夜霓虹城 | Neon Cyber City</button>
                 </div>
 
-                <div class="panel-label">🎵 2. 挑一個對味的心情與風格</div>
+                <div class="panel-label">🎵 2. 挑一個對味的心情與風格 | Select Style</div>
                 <div class="options-group mood-group">
-                    <button class="select-btn active" onclick="selectMood(this, 'citypop', '浪漫 City Pop')">🌆 City Pop</button>
-                    <button class="select-btn" onclick="selectMood(this, 'funk', '熱血 Funk 律動')">🎸 Funk 律動</button>
-                    <button class="select-btn" onclick="selectMood(this, 'lofi', '🍵 下午茶偷閒放鬆 (Lo-fi)')">🎧 Lo-fi 氛圍</button>
-                    <button class="select-btn" onclick="selectMood(this, 'synthwave', '🔮 霓虹 Synthwave')">🔮 Synthwave</button>
-                    <button class="select-btn" onclick="selectMood(this, 'jazzhop', '☕ 慵懶 Jazz Hop')">🎷 Jazz Hop</button>
-                    <button class="select-btn" onclick="selectMood(this, 'neosoul', '🍰 咖啡廳慵懶微醺 (Neo-Soul)')">🥁 Neo-Soul</button>
-                    <button class="select-btn" onclick="selectMood(this, 'fitness', '⚡ 運動重拍合唱專區')">🏃‍♂️ Fitness 專區</button>
+                    <button class="select-btn active" onclick="selectMood(this, 'citypop', '浪漫 City Pop | Romantic City Pop')">🌆 浪漫 City Pop | Romantic City Pop</button>
+                    <button class="select-btn" onclick="selectMood(this, 'funk', '熱血 Funk 律動 | Energetic Funk Groove')">🎸 熱血 Funk 律動 | Energetic Funk Groove</button>
+                    <button class="select-btn" onclick="selectMood(this, 'lofi', '下午茶偷閒放鬆 | Afternoon Tea Lo-fi')">🎧 下午茶偷閒放鬆 | Afternoon Tea Lo-fi</button>
+                    <button class="select-btn" onclick="selectMood(this, 'synthwave', '🔮 霓虹 Synthwave | Retro Synthwave')">🔮 霓虹 Synthwave | Retro Synthwave</button>
+                    <button class="select-btn" onclick="selectMood(this, 'jazzhop', '☕ 慵懶 Jazz Hop | Lazy Jazz Hop')">🎷 ☕ 慵懶 Jazz Hop | Lazy Jazz Hop</button>
+                    <button class="select-btn" onclick="selectMood(this, 'neosoul', '🍰 咖啡廳慵懶微醺 | Cafe Neo-Soul')">🥁 🍰 咖啡廳慵懶微醺 | Cafe Neo-Soul</button>
+                    <button class="select-btn" onclick="selectMood(this, 'fitness', '⚡ 運動重拍合唱專區 | Fitness Duet Zone')">🏃‍♂️ ⚡ 運動重拍合唱專區 | Fitness Duet Zone</button>
                 </div>
 
-                <div class="panel-label">3. 播音員準備就位</div>
-                <button class="btn-generate" onclick="queryLocalDatabase()">🪄 倒杯特調，開始放音樂</button>
+                <div class="panel-label">3. 播音員準備就位 | Radio DJ Ready</div>
+                <button class="btn-generate" onclick="queryLocalDatabase()">🪄 倒杯特調，開始放音樂 | Play Midnight Mix</button>
             </div>
 
             <div class="player-panel">
@@ -281,9 +281,9 @@
         audioPlayer.loop = true;
 
         let selectedLocTag = 'cafe';
-        let selectedLocName = '雨天咖啡廳';
+        let selectedLocName = '雨天咖啡廳 | Midnight Cafe';
         let selectedStyleTag = 'citypop';
-        let selectedStyleName = '浪漫 City Pop';
+        let selectedStyleName = '浪漫 City Pop | Romantic City Pop';
 
         window.addEventListener('DOMContentLoaded', () => {
             renderMusicGrid();         
@@ -312,7 +312,7 @@
             if(!status || !style || !vinyl || !wave) return;
 
             audioPlayer.pause();
-            status.innerText = "☕ 正在幫你從架上挑選黑膠...";
+            status.innerText = "☕ 正在幫你從架上挑選黑膠... | Selecting Vinyl...";
             style.innerHTML = `正在為你營造 <b>[${selectedLocName}]</b> 的 <b>[${selectedStyleName}]</b> 氛圍...`;
             vinyl.classList.remove('playing');
             wave.classList.remove('active');
@@ -331,16 +331,16 @@
                     }
                 }
 
-                // 3. 退路公播歌機制：只有當全資料庫完全找不到該曲風時才啟用
+                // 3. 退路公播歌機制
                 if (!matchedTrack) {
                     audioPlayer.src = publicTrackInfo.mp3_url;
-                    status.innerText = `📻 歡迎收聽夜貓子電台！`;
-                    style.innerHTML = `<b>正在播放：</b>${publicTrackInfo.title}<br><b>當前氣氛：</b>${selectedStyleName} (公播推薦)<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${publicTrackInfo.description}</span>`;
+                    status.innerText = `📻 歡迎收聽夜貓子電台！ | Welcome to the Night Radio!`;
+                    style.innerHTML = `<b>正在播放 | Now Playing：</b>${publicTrackInfo.title}<br><b>當前氣氛 | Vibe：</b>${selectedStyleName} (公播推薦)<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${publicTrackInfo.description}</span>`;
                 } else {
                     // 4. 全線通車：順暢播放 1-18 號實體歌曲
                     audioPlayer.src = matchedTrack.mp3_url;
-                    status.innerText = `✨ 唱針落下了！`;
-                    style.innerHTML = `<b>正在播放：</b>${matchedTrack.title}<br><b>當前氣氛：</b>${selectedStyleName}<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${matchedTrack.description}</span>`;
+                    status.innerText = `✨ 唱針落下了！ | Needle Dropped!`;
+                    style.innerHTML = `<b>正在播放 | Now Playing：</b>${matchedTrack.title}<br><b>當前氣氛 | Vibe：</b>${selectedStyleName}<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${matchedTrack.description}</span>`;
                 }
 
                 audioPlayer.load();
@@ -365,19 +365,19 @@
                     <div class="cover-art">${track.cover}</div>
                     <h3>${track.title}</h3>
                     <p style="color: #7d7890; margin-bottom: 8px; font-size: 12px;">收藏情境: ${track.location_tags.map(t => {
-                        if(t==='cafe') return '咖啡廳';
-                        if(t==='library') return '圖書館';
-                        if(t==='studio') return '工作室';
-                        if(t==='cyberpunk') return '不夜霓虹城';
+                        if(t==='cafe') return '雨天咖啡廳 | Midnight Cafe';
+                        if(t==='library') return '安靜圖書館 | Quiet Library';
+                        if(t==='studio') return '音樂工作室 | Music Studio';
+                        if(t==='cyberpunk') return '不夜霓虹城 | Neon Cyber City';
                         return t;
-                    }).join(', ')} | ${track.style_tags.map(s => {
-                        if(s==='citypop') return 'City Pop';
-                        if(s==='funk') return 'Funk 律動';
-                        if(s==='lofi') return '🍵 下午茶偷閒放鬆 (Lo-fi)';
-                        if(s==='synthwave') return 'Synthwave';
-                        if(s==='jazzhop') return 'Jazz Hop';
-                        if(s==='neosoul') return '🍰 咖啡廳慵懶微醺 (Neo-Soul)';
-                        if(s==='fitness') return '運動重拍';
+                    }).join(', ')} <br> 曲風: ${track.style_tags.map(s => {
+                        if(s==='citypop') return '浪漫 City Pop | Romantic City Pop';
+                        if(s==='funk') return '熱血 Funk 律動 | Energetic Funk Groove';
+                        if(s==='lofi') return '下午茶偷閒放鬆 | Afternoon Tea Lo-fi';
+                        if(s==='synthwave') return '🔮 霓虹 Synthwave | Retro Synthwave';
+                        if(s==='jazzhop') return '☕ 慵懶 Jazz Hop | Lazy Jazz Hop';
+                        if(s==='neosoul') return '🍰 咖啡廳慵懶微醺 | Cafe Neo-Soul';
+                        if(s==='fitness') return '⚡ 運動重拍合唱專區 | Fitness Duet Zone';
                         return s;
                     }).join(', ')}</p>
                     <p>${track.description}</p>
