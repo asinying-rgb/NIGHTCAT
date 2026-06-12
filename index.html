@@ -253,7 +253,7 @@
             { "title": "都市漫遊 (Urban Cruise)", "location_tags": ["cyberpunk"], "style_tags": ["citypop"], "mp3_url": "song1.mp3", "description": "伴隨不夜城的霓虹微光，開啟一段日系浪漫 City Pop 冒險。", "cover": "🌆" },
             { "title": "節奏狂想 (Groove Rhapsody)", "location_tags": ["studio"], "style_tags": ["funk"], "mp3_url": "song2.mp3", "description": "極具躍動感的 Slap 貝斯律動，瞬間點燃深夜的工作靈感。", "cover": "🎸" },
             { "title": "午後微醺 (Midnight Cafe)", "location_tags": ["cafe"], "style_tags": ["lofi"], "mp3_url": "song3.mp3", "description": "溫慢醇厚的雨天咖啡廳特調。低飽和度的 Lo-fi 顆粒重拍，是放鬆靈魂的解藥。", "cover": "🎧" },
-            { "title": "未來脈絡 (Future Core)", "location_tags": ["cyberpunk"], "style_tags": ["synthwave"], "mp3_url": "song4.mp3", "description": "復古未來賽博藍調。層層疊加的厚重復古鋸齒波，完美切換夜貓子的狂想視角。", "cover": "🔮" },
+            { "title": "未來脈絡 (Future Core)", "location_tags": ["cyberpunk"], "style_tags": ["synthwave"], "mp3_url": "song4.mp3", "description": "復古未來賽博藍調.層層疊加的厚重復古鋸齒波，完美切換夜貓子的狂想視角。", "cover": "🔮" },
             { "title": "深夜讀白 (Midnight Reader)", "location_tags": ["library"], "style_tags": ["jazzhop"], "mp3_url": "song5.mp3", "description": "專為深夜專注調配。慵懶的薩克斯風爵士旋律，交織冷冽的都市嘻哈重碎拍。", "cover": "🎷" },
             { "title": "靈魂共鳴 (Soul Resonance)", "location_tags": ["cafe"], "style_tags": ["neosoul"], "mp3_url": "song6.mp3", "description": "觸動心弦的溫柔私語。鬆軟的爵士屬七和弦，帶來當代靈魂樂最愜意的律動。", "cover": "🥁" },
             { "title": "偷閒時光 (Lazy Tea Time)", "location_tags": ["cafe", "studio"], "style_tags": ["lofi"], "mp3_url": "song7.mp3", "description": "難得休假，輕鬆喝著下午茶。慵懶微醺的女聲爵士哼唱，讓你瞬間忘記所有煩惱。", "cover": "🍰" },
@@ -263,7 +263,11 @@
             { "title": "極速覺醒 (Velocity Awakening)", "location_tags": ["library"], "style_tags": ["fitness"], "mp3_url": "song11.mp3", "description": "打破靜謐！用電子重拍與男女極速對唱，提起振奮精神克服沉悶。", "cover": "💥" },
             { "title": "脈衝風暴 (Pulse Storm)", "location_tags": ["cafe"], "style_tags": ["fitness"], "mp3_url": "song12.mp3", "description": "高能量男高音與女聲狂野合唱，重磅鼓點完美適配間歇性衝刺與深蹲挑戰。", "cover": "🌪️" },
             { "title": "超越極限 (Beyond limits)", "location_tags": ["studio", "cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song13.mp3", "description": "128 BPM 的超強重低音重拍！當高亢的女聲與爆發力十足的饒舌男聲交織，瞬間灌滿你的運動細胞，挑戰極限不再有藉口。", "cover": "⚡" },
-            { "title": "熱血狂飆 (Hyperdrive)", "location_tags": ["cafe", "cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song14.mp3", "description": "專為高強度間歇訓練與重訓破紀錄調配。撕裂感十足的電子合成器搭配男女雙主唱極速對唱，提起今晚最振奮的精神！", "cover": "🔥" }
+            { "title": "熱血狂飆 (Hyperdrive)", "location_tags": ["cafe", "cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song14.mp3", "description": "專為高強度間歇訓練與重訓破紀錄調配。撕裂感十足的電子合成器搭配男女雙主唱極速對唱，提起今晚最振奮的精神！", "cover": "🔥" },
+            
+            // 🌟 這次全新擴充的 15 號與 16 號慢節奏重拍男女對唱歌曲
+            { "title": "重擊暗流 (Heavy Undercurrent)", "location_tags": ["studio"], "style_tags": ["fitness"], "mp3_url": "song15.mp3", "description": "【全新慢重拍主打】速度放慢的男女撕裂對唱，搭配拳拳到肉的沉重重低音鼓點，力量感拉滿！", "cover": "⏳" },
+            { "title": "霓虹深淵 (Neon Abyss Dual)", "location_tags": ["cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song16.mp3", "description": "【全新慢重拍主打】賽博城暗黑系男女低音對唱，慵懶與爆發力並存的慢速重鼓點，震撼耳膜。", "cover": "🕳️" }
         ];
 
         // 🌟 備用公播主打歌
@@ -327,13 +331,13 @@
                     }
                 }
 
-                // 3. 退路公播歌機制：只有當全資料庫完全找不到該曲風時才啟用
+                // 3. 退路公播歌機制
                 if (!matchedTrack) {
                     audioPlayer.src = publicTrackInfo.mp3_url;
                     status.innerText = `📻 歡迎收聽夜貓子電台！`;
                     style.innerHTML = `<b>正在播放：</b>${publicTrackInfo.title}<br><b>當前氣氛：</b>${selectedStyleName} (公播推薦)<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${publicTrackInfo.description}</span>`;
                 } else {
-                    // 4. 全線通車：順暢播放 1-14 號實體歌曲
+                    // 4. 全線通車：順暢播放 1-16 號實體歌曲
                     audioPlayer.src = matchedTrack.mp3_url;
                     status.innerText = `✨ 唱針落下了！`;
                     style.innerHTML = `<b>正在播放：</b>${matchedTrack.title}<br><b>當前氣氛：</b>${selectedStyleName}<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${matchedTrack.description}</span>`;
