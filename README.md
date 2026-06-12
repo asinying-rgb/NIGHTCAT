@@ -32,4 +32,31 @@
 ### ⚡ 2. Fitness 運動重拍合唱專區 (高強度、慢重鼓、抒情節奏對唱)
 *此特區全系列皆為 **「男女雙主唱對唱/合唱」**，專為重訓、間歇、衝刺破紀錄調配。*
 
-| 檔名 | 歌曲名稱 | 點播空間 (Location) | 點播風格 (Style) |
+| 檔名 | 歌曲名稱 | 點播空間 (Location) | 點播風格 (Style) | 速度與情感重點描述 |
+| :---: | :--- | :--- | :--- | :--- |
+| `song9.mp3` | 極限交叉 | 音樂工作室 \| Music Studio | ⚡ 運動重拍合唱專區 \| Fitness Duet Zone | **130 BPM 快節奏** / 熱血重鼓搖滾男女對唱。 |
+| `song10.mp3` | 城市脈衝 | 不夜霓虹城 \| Neon Cyber City | ⚡ 運動重拍合唱專區 \| Fitness Duet Zone | **快節奏** / 男聲饒舌 x 女聲高亢旋律卡點跑步歌。 |
+| `song11.mp3` | 極速覺醒 | 安靜圖書館 \| Quiet Library | ⚡ 運動重拍合唱專區 \| Fitness Duet Zone | **快節奏** / 打破靜謐！電子重拍燃爆身體最後汗水。 |
+| `song12.mp3` | 脈衝風暴 | 雨天咖啡廳 \| Midnight Cafe | ⚡ 運動重拍合唱專區 \| Fitness Duet Zone | **快節奏** / 高能量男高音與狂野女聲間歇重訓合唱。 |
+| `song13.mp3` | 超越極限 | 音樂工作室 \| Music Studio | ⚡ 運動重拍合唱專區 \| Fitness Duet Zone | 128 BPM 爆發力強烈重拍，饒舌男聲與高亢女聲交織。 |
+| `song14.mp3` | 熱血狂飆 | 不夜霓虹城 \| Neon Cyber City | ⚡ 運動重拍合唱專區 \| Fitness Duet Zone | 撕裂感十足電子合成器雙主唱，提起今晚最振奮精神。 |
+| `song15.mp3` | 重擊暗流 | 音樂工作室 \| Music Studio | ⚡ 運動重拍合唱專區 \| Fitness Duet Zone | **【慢節奏重鼓點】** 拳拳到肉、力量感與撕裂感拉滿。 |
+| `song16.mp3` | 霓虹深淵 | 不夜霓虹城 \| Neon Cyber City | ⚡ 運動重拍合唱專區 \| Fitness Duet Zone | **【慢節奏重鼓點】** 暗黑賽博系，男女深邃低音纏繞對唱。 |
+| `song17.mp3` | 愛在雨季 | 雨天咖啡廳 \| Midnight Cafe | ⚡ 運動重拍合唱專區 \| Fitness Duet Zone | **【全新抒情重拍】** 繾綣慢律動撞擊強重低音，融入靈魂英文歌詞。 |
+| `song18.mp3` | 心動頻率 | 不夜霓虹城 \| Neon Cyber City | ⚡ 運動重拍合唱專區 \| Fitness Duet Zone | **【全新抒情重拍】** 都市深情纏繞，精緻英文情感重音直擊核心。 |
+
+### 📻 3. 首席防空洞官方指定公播曲
+| 檔名 | 歌曲名稱 | 曲風類型 | 觸發條件 | 氛圍描述 |
+| :---: | :--- | :--- | :--- | :--- |
+| `public.mp3` | Pavement Afterglow<br>(都市餘暉) | Neo-Soul | 當點選無精準對應之曲風時自動播放 | 溫慢絲滑的現代慢重拍，慵懶女聲哼唱交織溫暖爵士電鋼琴，一秒拉滿空間高級感。 |
+
+---
+
+## 🛠️ 倉庫檔案結構 (File Structure)
+```text
+├── index.html        # 電台網頁主大腦程式碼 (前端視覺、雙語控制面板、本地播放引擎)
+├── public.mp3        # 官方指定公播主打歌 (Pavement Afterglow)
+├── song1.mp3         # 都市漫遊 (Urban Cruise)
+├── song2.mp3         # 節奏狂想 (Groove Rhapsody)
+    ...
+└── song18.mp3        # 心動頻率 (Fluctuating Hearts)
