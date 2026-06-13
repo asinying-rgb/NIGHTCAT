@@ -12,9 +12,9 @@
             --sub-cyan: #5CE1E6;      
             --text-main: #F4F3F6;     
             --text-sub: #7D7890;      
-            --card-bg: rgba(255, 255, 255, 0.015);
-            --glass-bg: rgba(255, 255, 255, 0.01);
-            --glass-border: rgba(255, 255, 255, 0.04);
+            --card-bg: rgba(15, 12, 27, 0.45); /* 調低卡片透明度，完美透出落地窗微光 */
+            --glass-bg: rgba(15, 12, 27, 0.55);
+            --glass-border: rgba(255, 255, 255, 0.08);
         }
 
         * {
@@ -23,12 +23,19 @@
             scroll-behavior: smooth;
         }
 
+        /* 🌌 視覺淨化工程：大幅往右側與上方對齊，完美把左邊的黑色招牌與牆面裁切、隱藏到螢幕外面！ */
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
             overflow-x: hidden;
-            background-image: radial-gradient(circle at 50% 15%, rgba(229, 91, 133, 0.08) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 60%, rgba(92, 225, 230, 0.05) 0%, transparent 45%);
+            
+            /* 👑 運用漸層遮罩加深四周，並精準咬定你上傳的實體底圖 */
+            background: linear-gradient(rgba(15, 12, 27, 0.78), rgba(15, 12, 27, 0.85)), 
+                        url('bg.jpg.jpg');
+            background-size: 135%; /* 微幅放大，讓招牌徹底邊緣化 */
+            background-position: 72% 35%; /* 座標精準大平移！向右向上對齊，畫面中心只留下超美落地窗，把左側招牌完全推出螢幕外 */
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* 滾動時背景固定，營造頂級3D空間感 */
         }
 
         header {
@@ -47,20 +54,20 @@
         .section-title { font-size: 36px; margin-bottom: 15px; text-align: center; letter-spacing: 2px; text-shadow: 0 0 15px rgba(92, 225, 230, 0.1); }
         .section-subtitle { color: var(--text-sub); margin-bottom: 50px; font-size: 16px; text-align: center; }
 
-        #home { text-align: center; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2)); }
-        #home h1 { font-size: 52px; margin-bottom: 25px; letter-spacing: 2px; line-height: 1.3; color: var(--text-main); }
-        #home p { font-size: 18px; color: var(--text-sub); max-width: 650px; margin-bottom: 45px; line-height: 1.6; }
+        #home { text-align: center; background: transparent; }
+        #home h1 { font-size: 52px; margin-bottom: 25px; letter-spacing: 2px; line-height: 1.3; color: var(--text-main); text-shadow: 0 0 20px rgba(255,255,255,0.15); }
+        #home p { font-size: 18px; color: #b7b4d3; max-width: 650px; margin-bottom: 45px; line-height: 1.6; text-shadow: 0 2px 5px rgba(0,0,0,0.6); }
         .btn-cta {
-            display: inline-block; padding: 16px 45px; background: transparent; color: var(--main-pink);
+            display: inline-block; padding: 16px 45px; background: rgba(15, 12, 27, 0.65); color: var(--main-pink);
             border: 2px solid var(--main-pink); border-radius: 50px; font-size: 18px; font-weight: bold;
-            text-decoration: none; transition: 0.4s; box-shadow: 0 0 15px rgba(229, 91, 133, 0.1);
+            text-decoration: none; transition: 0.4s; box-shadow: 0 0 15px rgba(229, 91, 133, 0.15); backdrop-filter: blur(5px);
         }
         .btn-cta:hover { background: var(--main-pink); color: var(--bg-color); box-shadow: 0 0 25px var(--main-pink); transform: translateY(-3px); }
 
         .ai-dashboard {
-            background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(12px);
+            background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(25px); /* 大幅增強磨砂玻璃透光質感 */
             padding: 40px; border-radius: 24px; max-width: 1150px; width: 100%;
-            display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.65);
         }
 
         .control-panel { display: flex; flex-direction: column; justify-content: center; }
@@ -68,18 +75,18 @@
         .options-group { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px; }
 
         .select-btn {
-            background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); color: var(--text-sub);
-            padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: 0.2s;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); color: #aaafca;
+            padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: 0.2s; backdrop-filter: blur(5px);
         }
         .select-btn:hover { border-color: var(--sub-cyan); color: #fff; }
 
-        .location-group .select-btn.active { background: rgba(92, 225, 230, 0.1); border-color: var(--sub-cyan); color: var(--sub-cyan); box-shadow: 0 0 12px rgba(92, 225, 230, 0.15); }
-        .mood-group .select-btn.active { background: rgba(229, 91, 133, 0.1); border-color: var(--main-pink); color: var(--main-pink); box-shadow: 0 0 12px rgba(229, 91, 133, 0.15); }
+        .location-group .select-btn.active { background: rgba(92, 225, 230, 0.18); border-color: var(--sub-cyan); color: var(--sub-cyan); box-shadow: 0 0 12px rgba(92, 225, 230, 0.25); }
+        .mood-group .select-btn.active { background: rgba(229, 91, 133, 0.18); border-color: var(--main-pink); color: var(--main-pink); box-shadow: 0 0 12px rgba(229, 91, 133, 0.25); }
 
         .btn-generate {
             background: linear-gradient(45deg, var(--main-pink), #ed799d); color: var(--bg-color); border: none;
             padding: 16px; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer;
-            transition: 0.3s; box-shadow: 0 0 15px rgba(229, 91, 133, 0.2); margin-top: 10px;
+            transition: 0.3s; box-shadow: 0 0 15px rgba(229, 91, 133, 0.25); margin-top: 10px;
         }
         .btn-generate:hover { transform: translateY(-2px); box-shadow: 0 0 25px var(--main-pink); color: var(--bg-color); }
 
@@ -87,7 +94,7 @@
         .vinyl-wrapper { position: relative; width: 180px; height: 180px; margin-bottom: 25px; }
         .vinyl {
             width: 100%; height: 100%; background: radial-gradient(circle, #252033 25%, #0d0a17 55%, #181426 65%, #05040a 100%);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 25px rgba(0,0,0,0.5);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 25px rgba(0,0,0,0.75);
         }
         .vinyl.playing { animation: rotateVinyl 6s linear infinite; }
         .vinyl-center { width: 60px; height: 60px; background: var(--main-pink); border-radius: 50%; border: 5px solid #0d0a17; }
@@ -95,7 +102,7 @@
         @keyframes rotateVinyl { 100% { transform: rotate(360deg); } }
 
         .status-text { font-size: 18px; font-weight: bold; margin-bottom: 8px; text-align: center; color: var(--text-main); }
-        .style-display { font-size: 13px; color: var(--text-sub); margin-bottom: 20px; text-align: center; line-height: 1.6; min-height: 75px; }
+        .style-display { font-size: 13px; color: #b1adca; margin-bottom: 20px; text-align: center; line-height: 1.6; min-height: 75px; }
 
         .wave-container { display: flex; align-items: center; gap: 4px; height: 30px; opacity: 0.15; }
         .wave-container.active { opacity: 1; }
@@ -106,30 +113,32 @@
         @keyframes jump { 0% { height: 20%; } 100% { height: 100%; } }
 
         .music-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; width: 100%; max-width: 1000px; }
-        .music-card { background: var(--card-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; transition: 0.4s; text-align: center; position: relative; overflow: hidden; }
-        .music-card:hover { transform: translateY(-10px); border-color: var(--main-pink); box-shadow: 0 10px 25px rgba(229, 91, 133, 0.1); }
+        .music-card { background: var(--card-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; transition: 0.4s; text-align: center; position: relative; overflow: hidden; backdrop-filter: blur(12px); }
+        .music-card:hover { transform: translateY(-10px); border-color: var(--main-pink); box-shadow: 0 10px 25px rgba(229, 91, 133, 0.25); }
 
         .cover-art { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #1b152e, #0d0a17); border-radius: 10px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-size: 45px; border: 1px solid rgba(255,255,255,0.02); }
         .music-card h3 { font-size: 20px; margin-bottom: 8px; color: var(--text-main); }
-        .music-card p { color: var(--text-sub); font-size: 14px; }
+        .music-card p { color: #b1adca; font-size: 14px; }
 
         .about-content { display: flex; align-items: center; gap: 60px; max-width: 950px; width: 100%; flex-wrap: wrap; }
-        .about-img { width: 260px; height: 260px; background: linear-gradient(45deg, var(--main-pink), var(--sub-cyan)); border-radius: 24px; box-shadow: 0 0 25px rgba(92, 225, 230, 0.1); }
+        .about-img { width: 260px; height: 260px; background: linear-gradient(45deg, var(--main-pink), var(--sub-cyan)); border-radius: 24px; box-shadow: 0 0 25px rgba(92, 225, 230, 0.15); }
         .about-text { flex: 1; min-width: 300px; }
-        .about-text p { font-size: 17px; color: var(--text-main); line-height: 1.9; margin-bottom: 18px; letter-spacing: 0.5px; }
+        .about-text p { font-size: 17px; color: var(--text-main); line-height: 1.9; margin-bottom: 18px; letter-spacing: 0.5px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
 
         .contact-form { max-width: 600px; width: 100%; display: flex; flex-direction: column; gap: 20px; }
         .form-group input, .form-group textarea {
-            width: 100%; padding: 16px; background: rgba(255,255,255,0.01);
-            border: 1px solid var(--glass-border); border-radius: 10px; color: #fff; font-size: 16px; transition: 0.3s;
+            width: 100%; padding: 16px; background: rgba(15, 12, 27, 0.65);
+            border: 1px solid var(--glass-border); border-radius: 10px; color: #fff; font-size: 16px; transition: 0.3s; backdrop-filter: blur(5px);
         }
         .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--sub-cyan); box-shadow: 0 0 10px rgba(92, 225, 230, 0.1); }
-        .btn-submit { padding: 16px; background: transparent; border: 2px solid var(--sub-cyan); color: var(--sub-cyan); font-size: 16px; font-weight: bold; border-radius: 10px; cursor: pointer; transition: 0.3s; }
+        .btn-submit { padding: 16px; background: rgba(15, 12, 27, 0.45); border: 2px solid var(--sub-cyan); color: var(--sub-cyan); font-size: 16px; font-weight: bold; border-radius: 10px; cursor: pointer; transition: 0.3s; backdrop-filter: blur(5px); }
         .btn-submit:hover { background: var(--sub-cyan); color: var(--bg-color); box-shadow: 0 0 15px var(--sub-cyan); }
 
-        footer { text-align: center; padding: 40px; color: var(--text-sub); font-size: 14px; border-top: 1px solid var(--glass-border); margin-top: 60px; }
+        footer { text-align: center; padding: 40px; color: var(--text-sub); font-size: 14px; border-top: 1px solid var(--glass-border); margin-top: 60px; background: rgba(15, 12, 27, 0.5); backdrop-filter: blur(5px); }
 
+        /* 📱 手機板自適應：調整裁切比例，確保手機上看也完全沒有任何字 */
         @media (max-width: 768px) {
+            body { background-size: 180%; background-position: 80% 30%; }
             .nav-links { display: none; }
             #home h1 { font-size: 36px; }
             .ai-dashboard { grid-template-columns: 1fr; }
@@ -250,7 +259,7 @@
     </footer>
 
     <script>
-        // 🌟 核心索引資料庫
+        // 🌟 核心音樂資料庫
         const localMusicDatabase = [
             { "id": "1", "title": "都市漫遊 (Urban Cruise)", "mp3_url": "song1.mp3", "description": "伴隨不夜城的霓虹微光，開啟一段日系浪漫 City Pop 冒險。", "cover": "🌆" },
             { "id": "2", "title": "節奏狂想 (Groove Rhapsody)", "mp3_url": "song2.mp3", "description": "極具躍動感的 Slap 貝斯律動，瞬間點燃深夜的工作靈感。", "cover": "🎸" },
