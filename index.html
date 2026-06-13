@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>夜貓子的狂想 | Night Owl's Reverie</title>
     <style>
-        /* 🎨 全域變數：微醺馬卡龍復古配色 */
+        /* 🎨 全域變數：極致高對比「深夜暗光控制面板」二度調暗完美配方 */
         :root {
-            --bg-color: #0f0c1b;      
-            --main-pink: #E55B85;     
-            --sub-cyan: #5CE1E6;      
-            --text-main: #F4F3F6;     
-            --text-sub: #7D7890;      
-            --card-bg: rgba(15, 12, 27, 0.45); /* 調低卡片透明度，完美透出落地窗微光 */
-            --glass-bg: rgba(15, 12, 27, 0.55);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --bg-color: #0b0914;      /* 網頁底色改為極致深色 */
+            --main-pink: #E55B85;     /* 閃耀粉紅霓虹 */
+            --sub-cyan: #5CE1E6;      /* 搶眼青綠霓虹 */
+            --text-main: #ffffff;     /* 面板內主文字：純白 */
+            --text-sub: #b1adca;      /* 面板內次文字：淡紫 */
+            --card-bg: rgba(10, 8, 18, 0.88);  /* 💎 卡片再調暗、再加厚，徹底隔絕背光 */
+            --glass-bg: rgba(10, 8, 18, 0.92); /* 💎 主控制台面盤大幅加深加濃，給字體最強靠山 */
+            --glass-border: rgba(255, 255, 255, 0.06);
         }
 
         * {
@@ -23,78 +23,102 @@
             scroll-behavior: smooth;
         }
 
-        /* 🌌 華麗大謝幕：完美居中對齊你親自修好的純淨咖啡廳背景圖 */
+        /* 🌌 全體黑化工程：全面壓制反光，讓背景圖進入沉穩的深夜咖啡廳氛圍 */
         body {
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: #ffffff;
             overflow-x: hidden;
             
-            /* 👑 這裡已經精準咬定 bg.jpg，並換回完美置中的黃金比例，疊加深夜質感濾鏡遮罩 */
-            background: linear-gradient(rgba(15, 12, 27, 0.75), rgba(15, 12, 27, 0.82)), 
+            /* 👑 關鍵調暗：將圖片上方的黑色遮罩大幅加厚（從 0.35/0.68 大幅調暗至 0.60/0.85） */
+            background: linear-gradient(rgba(11, 9, 20, 0.60), rgba(11, 9, 20, 0.85)), 
                         url('bg.jpg');
-            background-size: cover; /* 自動縮放填滿螢幕 */
-            background-position: center; /* 完美正中央對齊，展現你修圖後的最強全景 */
+            background-size: cover; 
+            background-position: center; 
             background-repeat: no-repeat;
-            background-attachment: fixed; /* 滾動時背景固定，營造頂級3D空間感 */
+            background-attachment: fixed;
         }
 
         header {
             position: fixed; top: 0; left: 0; width: 100%; padding: 20px 10%;
             display: flex; justify-content: space-between; align-items: center; z-index: 100;
-            background: rgba(15, 12, 27, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border);
+            background: rgba(8, 6, 14, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.5);
         }
 
-        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; text-shadow: 0 0 10px rgba(229, 91, 133, 0.3); }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; color: #fff; text-shadow: 0 0 10px rgba(229, 91, 133, 0.4); }
         .nav-links { display: flex; list-style: none; }
         .nav-links li { margin-left: 30px; }
-        .nav-links a { color: var(--text-sub); text-decoration: none; font-size: 16px; transition: 0.3s; }
+        .nav-links a { color: var(--text-sub); text-decoration: none; font-size: 16px; transition: 0.3s; font-weight: bold; }
         .nav-links a:hover { color: var(--sub-cyan); text-shadow: 0 0 8px var(--sub-cyan); }
 
         section { padding: 120px 10% 80px 10%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .section-title { font-size: 36px; margin-bottom: 15px; text-align: center; letter-spacing: 2px; text-shadow: 0 0 15px rgba(92, 225, 230, 0.1); }
-        .section-subtitle { color: var(--text-sub); margin-bottom: 50px; font-size: 16px; text-align: center; }
+        
+        /* 👑 標題與你提到的那兩句文字優化：全面改為純白，並補上強烈黑影、徹底消除霧感 */
+        .section-title { 
+            font-size: 36px; 
+            margin-bottom: 15px; 
+            text-align: center; 
+            letter-spacing: 2px; 
+            color: #ffffff; /* 改為純白 */
+            font-weight: bold; 
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9), 0 4px 30px rgba(0, 0, 0, 1); /* 強烈深黑陰影托底 */
+        }
+        .section-subtitle { 
+            color: #c5c2db; /* 改為極度清晰的亮淡紫色 */
+            margin-bottom: 50px; 
+            font-size: 16px; 
+            text-align: center; 
+            font-weight: bold; 
+            max-width: 700px;
+            line-height: 1.6;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 1); /* 強烈深黑陰影托底 */
+        }
 
         #home { text-align: center; background: transparent; }
-        #home h1 { font-size: 52px; margin-bottom: 25px; letter-spacing: 2px; line-height: 1.3; color: var(--text-main); text-shadow: 0 0 20px rgba(255,255,255,0.15); }
-        #home p { font-size: 18px; color: #b7b4d3; max-width: 650px; margin-bottom: 45px; line-height: 1.6; text-shadow: 0 2px 5px rgba(0,0,0,0.6); }
+        #home h1 { font-size: 52px; margin-bottom: 25px; letter-spacing: 2px; line-height: 1.3; color: #ffffff; font-weight: bold; text-shadow: 0 2px 20px rgba(0,0,0,0.8); }
+        #home p { font-size: 18px; color: #cbd5e1; max-width: 650px; margin-bottom: 45px; line-height: 1.6; font-weight: bold; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        
         .btn-cta {
-            display: inline-block; padding: 16px 45px; background: rgba(15, 12, 27, 0.65); color: var(--main-pink);
+            display: inline-block; padding: 16px 45px; background: rgba(8, 6, 14, 0.9); color: var(--main-pink);
             border: 2px solid var(--main-pink); border-radius: 50px; font-size: 18px; font-weight: bold;
-            text-decoration: none; transition: 0.4s; box-shadow: 0 0 15px rgba(229, 91, 133, 0.15); backdrop-filter: blur(5px);
+            text-decoration: none; transition: 0.4s; box-shadow: 0 4px 15px rgba(0,0,0,0.5); backdrop-filter: blur(5px);
         }
-        .btn-cta:hover { background: var(--main-pink); color: var(--bg-color); box-shadow: 0 0 25px var(--main-pink); transform: translateY(-3px); }
+        .btn-cta:hover { background: var(--main-pink); color: #0b0914; box-shadow: 0 0 25px var(--main-pink); transform: translateY(-3px); }
 
+        /* 🎛️ 控制面板：再度加黑至 0.92，讓面板內的字與按鈕像黑夜中的霓虹燈一樣極致清晰 */
         .ai-dashboard {
-            background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(25px); /* 磨砂玻璃透光質感 */
+            background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(30px); 
             padding: 40px; border-radius: 24px; max-width: 1150px; width: 100%;
-            display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.65);
+            display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+            color: var(--text-main);
         }
 
         .control-panel { display: flex; flex-direction: column; justify-content: center; }
-        .panel-label { font-size: 13px; color: var(--sub-cyan); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; font-weight: bold; }
+        .panel-label { font-size: 13px; color: var(--sub-cyan); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; font-weight: bold; text-shadow: 0 0 8px rgba(92, 225, 230, 0.2); }
         .options-group { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px; }
 
         .select-btn {
-            background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); color: #aaafca;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); color: #9da3c2;
             padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: 0.2s; backdrop-filter: blur(5px);
+            font-weight: bold;
         }
         .select-btn:hover { border-color: var(--sub-cyan); color: #fff; }
 
-        .location-group .select-btn.active { background: rgba(92, 225, 230, 0.18); border-color: var(--sub-cyan); color: var(--sub-cyan); box-shadow: 0 0 12px rgba(92, 225, 230, 0.25); }
-        .mood-group .select-btn.active { background: rgba(229, 91, 133, 0.18); border-color: var(--main-pink); color: var(--main-pink); box-shadow: 0 0 12px rgba(229, 91, 133, 0.25); }
+        .location-group .select-btn.active { background: rgba(92, 225, 230, 0.18); border-color: var(--sub-cyan); color: var(--sub-cyan); box-shadow: 0 0 12px rgba(92, 225, 230, 0.3); }
+        .mood-group .select-btn.active { background: rgba(229, 91, 133, 0.18); border-color: var(--main-pink); color: var(--main-pink); box-shadow: 0 0 12px rgba(229, 91, 133, 0.3); }
 
         .btn-generate {
-            background: linear-gradient(45deg, var(--main-pink), #ed799d); color: var(--bg-color); border: none;
+            background: linear-gradient(45deg, var(--main-pink), #ed799d); color: #0d0a17; border: none;
             padding: 16px; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer;
-            transition: 0.3s; box-shadow: 0 0 15px rgba(229, 91, 133, 0.25); margin-top: 10px;
+            transition: 0.3s; box-shadow: 0 0 15px rgba(229, 91, 133, 0.4); margin-top: 10px;
         }
-        .btn-generate:hover { transform: translateY(-2px); box-shadow: 0 0 25px var(--main-pink); color: var(--bg-color); }
+        .btn-generate:hover { transform: translateY(-2px); box-shadow: 0 0 25px var(--main-pink); }
 
         .player-panel { display: flex; flex-direction: column; align-items: center; justify-content: center; border-left: 1px solid var(--glass-border); padding-left: 40px; }
         .vinyl-wrapper { position: relative; width: 180px; height: 180px; margin-bottom: 25px; }
         .vinyl {
             width: 100%; height: 100%; background: radial-gradient(circle, #252033 25%, #0d0a17 55%, #181426 65%, #05040a 100%);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 25px rgba(0,0,0,0.75);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 25px rgba(0,0,0,0.8);
         }
         .vinyl.playing { animation: rotateVinyl 6s linear infinite; }
         .vinyl-center { width: 60px; height: 60px; background: var(--main-pink); border-radius: 50%; border: 5px solid #0d0a17; }
@@ -113,36 +137,50 @@
         @keyframes jump { 0% { height: 20%; } 100% { height: 100%; } }
 
         .music-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; width: 100%; max-width: 1000px; }
-        .music-card { background: var(--card-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; transition: 0.4s; text-align: center; position: relative; overflow: hidden; backdrop-filter: blur(12px); }
-        .music-card:hover { transform: translateY(-10px); border-color: var(--main-pink); box-shadow: 0 10px 25px rgba(229, 91, 133, 0.25); }
+        .music-card { background: var(--card-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px; transition: 0.4s; text-align: center; position: relative; overflow: hidden; backdrop-filter: blur(12px); color: var(--text-main); }
+        .music-card:hover { transform: translateY(-10px); border-color: var(--main-pink); box-shadow: 0 15px 30px rgba(0,0,0,0.6); }
 
-        .cover-art { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #1b152e, #0d0a17); border-radius: 10px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-size: 45px; border: 1px solid rgba(255,255,255,0.02); }
+        .cover-art { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #141024, #08060e); border-radius: 10px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-size: 45px; border: 1px solid rgba(255,255,255,0.01); }
         .music-card h3 { font-size: 20px; margin-bottom: 8px; color: var(--text-main); }
-        .music-card p { color: #b1adca; font-size: 14px; }
+        .music-card p { color: var(--text-sub); font-size: 14px; line-height: 1.5; }
 
-        .about-content { display: flex; align-items: center; gap: 60px; max-width: 950px; width: 100%; flex-wrap: wrap; }
+        .about-content { display: flex; align-items: center; gap: 60px; max-width: 950px; width: 100%; flex-wrap: wrap; background: var(--glass-bg); padding: 40px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(25px); box-shadow: 0 25px 50px rgba(0,0,0,0.6); }
         .about-img { width: 260px; height: 260px; background: linear-gradient(45deg, var(--main-pink), var(--sub-cyan)); border-radius: 24px; box-shadow: 0 0 25px rgba(92, 225, 230, 0.15); }
         .about-text { flex: 1; min-width: 300px; }
-        .about-text p { font-size: 17px; color: var(--text-main); line-height: 1.9; margin-bottom: 18px; letter-spacing: 0.5px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .about-text p { font-size: 17px; color: var(--text-main); line-height: 1.9; margin-bottom: 18px; letter-spacing: 0.5px; }
 
-        .contact-form { max-width: 600px; width: 100%; display: flex; flex-direction: column; gap: 20px; }
+        #contact { color: var(--text-main); }
+        .contact-form { max-width: 600px; width: 100%; display: flex; flex-direction: column; gap: 20px; background: var(--glass-bg); padding: 40px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(25px); box-shadow: 0 25px 50px rgba(0,0,0,0.6); }
         .form-group input, .form-group textarea {
-            width: 100%; padding: 16px; background: rgba(15, 12, 27, 0.65);
-            border: 1px solid var(--glass-border); border-radius: 10px; color: #fff; font-size: 16px; transition: 0.3s; backdrop-filter: blur(5px);
+            width: 100%; padding: 16px; 
+            background: rgba(0, 0, 0, 0.5); /* 這裡也同步加深黑底 */
+            border: 1px solid var(--glass-border); 
+            border-radius: 10px; 
+            color: #ffffff; 
+            font-size: 16px; 
+            transition: 0.3s;
+            font-weight: bold;
         }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--sub-cyan); box-shadow: 0 0 10px rgba(92, 225, 230, 0.1); }
-        .btn-submit { padding: 16px; background: rgba(15, 12, 27, 0.45); border: 2px solid var(--sub-cyan); color: var(--sub-cyan); font-size: 16px; font-weight: bold; border-radius: 10px; cursor: pointer; transition: 0.3s; backdrop-filter: blur(5px); }
-        .btn-submit:hover { background: var(--sub-cyan); color: var(--bg-color); box-shadow: 0 0 15px var(--sub-cyan); }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--sub-cyan); box-shadow: 0 0 10px rgba(92, 225, 230, 0.2); }
+        
+        .form-group input::placeholder, 
+        .form-group textarea::placeholder {
+            color: #928db0 !important;
+            opacity: 1;
+        }
 
-        footer { text-align: center; padding: 40px; color: var(--text-sub); font-size: 14px; border-top: 1px solid var(--glass-border); margin-top: 60px; background: rgba(15, 12, 27, 0.5); backdrop-filter: blur(5px); }
+        .btn-submit { padding: 16px; background: transparent; border: 2px solid var(--sub-cyan); color: var(--sub-cyan); font-size: 16px; font-weight: bold; border-radius: 10px; cursor: pointer; transition: 0.3s; }
+        .btn-submit:hover { background: var(--sub-cyan); color: #0f0c1b; box-shadow: 0 0 15px var(--sub-cyan); }
 
-        /* 📱 手機與平版板自適應優化 */
+        footer { text-align: center; padding: 40px; color: var(--text-sub); font-size: 14px; border-top: 1px solid var(--glass-border); margin-top: 60px; background: rgba(8, 6, 14, 0.7); backdrop-filter: blur(5px); }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             #home h1 { font-size: 36px; }
             .ai-dashboard { grid-template-columns: 1fr; }
             .player-panel { border-left: none; padding-left: 0; padding-top: 40px; border-top: 1px solid var(--glass-border); }
-            .about-content { flex-direction: column; text-align: center; }
+            .about-content { flex-direction: column; text-align: center; padding: 20px; }
+            .contact-form { padding: 20px; }
         }
     </style>
 </head>
@@ -258,7 +296,6 @@
     </footer>
 
     <script>
-        // 🌟 核心音樂資料庫
         const localMusicDatabase = [
             { "id": "1", "title": "都市漫遊 (Urban Cruise)", "mp3_url": "song1.mp3", "description": "伴隨不夜城的霓虹微光，開啟一段日系浪漫 City Pop 冒險。", "cover": "🌆" },
             { "id": "2", "title": "節奏狂想 (Groove Rhapsody)", "mp3_url": "song2.mp3", "description": "極具躍動感的 Slap 貝斯律動，瞬間點燃深夜的工作靈感。", "cover": "🎸" },
@@ -268,8 +305,8 @@
             { "id": "6", "title": "靈魂共鳴 (Soul Resonance)", "mp3_url": "song6.mp3", "description": "觸動心弦的溫柔私語。鬆軟的爵士屬七和弦，帶來當代靈魂樂最愜意的律動。", "cover": "🥁" },
             { "id": "7", "title": "偷閒時光 (Lazy Tea Time)", "mp3_url": "song7.mp3", "description": "難得休假，輕鬆喝著下午茶。慵懶微醺的女聲爵士哼唱，讓你瞬間忘記所有煩惱。", "cover": "🍰" },
             { "id": "8", "title": "咖啡香氣 (Espresso Romance)", "mp3_url": "song8.mp3", "description": "節奏慵懶的當代女聲。窩在咖啡廳角落，伴隨鬆軟和弦與迷人煙燻嗓音忘卻塵囂。", "cover": "☕" },
-            { "id": "9", "title": "極限交叉 (Crossfire Peak)", "mp3_url": "song9.mp3", "description": "男女搖滾對唱搭配 130 BPM 重低音節奏，專為高強度有氧與重訓破紀錄設計。", "cover": "💪" },
-            { "id": "10", "title": "城市脈衝 (Urban Pulse Dual)", "mp3_url": "song10.mp3", "description": "男聲饒舌與女聲高亢旋律交織，重拍重低音強烈卡點跑步步頻。", "cover": "🏃裝" },
+            { "id": "9", "title": "極限交叉 (Crossfire Peak)", "mp3_url": "song10.mp3", "description": "男女搖滾對唱搭配 130 BPM 重低音節奏，專為高強度有氧與重訓破紀錄設計。", "cover": "💪" },
+            { "id": "10", "title": "城市脈衝 (Urban Pulse Dual)", "mp3_url": "song10.mp3", "description": "男聲饒舌與女聲高亢旋律交織，重拍重低音強烈卡點跑步步頻。", "cover": "🏃‍♂️" },
             { "id": "11", "title": "極速覺醒 (Velocity Awakening)", "mp3_url": "song11.mp3", "description": "打破靜謐！用電子重拍與男女極速對唱，提起振奮精神克服沉悶。", "cover": "💥" },
             { "id": "12", "title": "脈衝風暴 (Pulse Storm)", "mp3_url": "song12.mp3", "description": "高能量男高音與女聲狂野合唱，重磅鼓點完美適配間歇性衝刺與深蹲挑戰。", "cover": "🌪️" },
             { "id": "13", "title": "超越極限 (Beyond limits)", "mp3_url": "song13.mp3", "description": "128 BPM 的超強重低音重拍！當高亢的女聲與爆發力十足的饒舌男聲交織，瞬間灌滿你的運動細胞，挑戰極限不再有藉口。", "cover": "⚡" },
@@ -334,17 +371,11 @@
                 const locText = activeLocBtn ? activeLocBtn.innerText : '';
                 const moodText = activeMoodBtn ? activeMoodBtn.innerText : '';
 
-                // ⚡ 精準中文字幕辨識大腦
                 if (moodText.includes('Fitness') || moodText.includes('運動重拍')) {
-                    if (locText.includes('工作室') || locText.includes('studio')) { 
-                        finalSongId = "15"; 
-                    } else if (locText.includes('霓虹城') || locText.includes('cyberpunk')) { 
-                        finalSongId = "18"; 
-                    } else if (locText.includes('咖啡廳') || locText.includes('cafe')) { 
-                        finalSongId = "17"; 
-                    } else { 
-                        finalSongId = "11"; 
-                    }   
+                    if (locText.includes('工作室') || locText.includes('studio')) { finalSongId = "15"; }
+                    else if (locText.includes('霓虹城') || locText.includes('cyberpunk')) { finalSongId = "18"; }
+                    else if (locText.includes('咖啡廳') || locText.includes('cafe')) { finalSongId = "17"; }
+                    else { finalSongId = "11"; }   
                 } else {
                     if (moodText.includes('City Pop')) { finalSongId = "1"; }
                     else if (moodText.includes('Funk')) { finalSongId = "2"; }
@@ -365,11 +396,11 @@
                 if (!matchedTrack) {
                     audioPlayer.src = publicTrackInfo.mp3_url;
                     status.innerText = `📻 歡迎收聽夜貓子電台！`;
-                    style.innerHTML = `<b>正在播放：</b>${publicTrackInfo.title}<br><b>當前氣氛：</b>${selectedStyleName} (公播推薦)<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${publicTrackInfo.description}</span>`;
+                    style.innerHTML = `<b>正在播放：</b>${publicTrackInfo.title}<br><b>當前氣氛：</b>${selectedStyleName} (公播推薦)<br><span style="color:var(--sub-cyan); font-size:12px; display:inline-block; margin-top:5px;">${publicTrackInfo.description}</span>`;
                 } else {
                     audioPlayer.src = matchedTrack.mp3_url;
                     status.innerText = `✨ 唱針落下了！`;
-                    style.innerHTML = `<b>正在播放：</b>${matchedTrack.title}<br><b>當前氣氛：</b>${selectedStyleName}<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${matchedTrack.description}</span>`;
+                    style.innerHTML = `<b>正在播放：</b>${matchedTrack.title}<br><b>當前氣氛：</b>${selectedStyleName}<br><span style="color:var(--sub-cyan); font-size:12px; display:inline-block; margin-top:5px;">${matchedTrack.description}</span>`;
                 }
 
                 vinyl.classList.add('playing');
@@ -378,7 +409,7 @@
                 let playPromise = audioPlayer.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(error => {
-                        console.log("等待用戶點擊畫面以解鎖音訊...", error);
+                        console.log("等待用戶點擊畫面...", error);
                     });
                 }
             }, 1000);
@@ -386,7 +417,7 @@
 
         document.body.addEventListener('click', () => {
             if (audioPlayer.src && audioPlayer.paused && document.getElementById('vinylDisc').classList.contains('playing')) {
-                audioPlayer.play().catch(e => console.log("解除音訊鎖定中...", e));
+                audioPlayer.play().catch(e => console.log("解鎖音訊通道...", e));
             }
         });
 
