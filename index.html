@@ -118,6 +118,7 @@
         .about-text { flex: 1; min-width: 300px; }
         .about-text p { font-size: 17px; color: var(--text-main); line-height: 1.9; margin-bottom: 18px; letter-spacing: 0.5px; }
 
+        /* ✉️ 合作聯絡表單專用樣式 */
         .contact-form { max-width: 600px; width: 100%; display: flex; flex-direction: column; gap: 20px; }
         .form-group input, .form-group textarea {
             width: 100%; padding: 16px; background: rgba(255,255,255,0.01);
@@ -153,7 +154,7 @@
 
     <section id="home">
         <h1>夜貓子的深夜電台</h1>
-        <p>用一首歌的時間，帶你晃到世界的某個角落。這裡持續更新我私藏的原創音樂，從迷人的男聲、慵懶的女聲哼唱到高能量的男女對唱應有盡有。點個空間、選個心情，聽聽今晚哪首歌最懂你。</p>
+        <p>用一首歌的時間，帶你晃到世界的某個角落。這裡持續更新我私藏的原創音樂，從迷人的男聲、慵懶的女聲哼唱到高能量的男女對唱應有聯有。點個空間、選個心情，聽聽今晚哪首歌最懂你。</p>
         <a href="#ai-studio" class="btn-cta">🎧 點播一首今晚的歌</a>
     </section>
 
@@ -222,8 +223,26 @@
             <div class="about-text">
                 <p>「音樂是生活的背景音樂，而共享則是靈魂的對話。」</p>
                 <p>我著迷於音符背後的故事，更著迷於每個人聽歌時的心境。在這裡，我不只分享自己耳機裡的日常，也期待遇見你私藏的旋律。</p>
+                <p>歡迎來到我的音樂角落，帶走我的推薦，也請留下你的私房好歌，讓我們用音樂當作相認的暗號。</p>
             </div>
         </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">聯絡與合作邀約</h2>
+        <p class="section-subtitle">留下你的私房旋律，或開啟全新的音樂火花</p>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('感謝您的來信與暗號分享！');">
+            <div class="form-group">
+                <input type="text" placeholder="您的姓名 / 團隊名稱" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="您的電子郵件" required>
+            </div>
+            <div class="form-group">
+                <textarea rows="5" placeholder="分享你的私房好歌給我，或者填寫合作邀約需求..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">送出暗號訊息</button>
+        </form>
     </section>
 
     <footer>
@@ -242,7 +261,7 @@
             { "id": "7", "title": "偷閒時光 (Lazy Tea Time)", "mp3_url": "song7.mp3", "description": "難得休假，輕鬆喝著下午茶。慵懶微醺的女聲爵士哼唱，讓你瞬間忘記所有煩惱。", "cover": "🍰" },
             { "id": "8", "title": "咖啡香氣 (Espresso Romance)", "mp3_url": "song8.mp3", "description": "節奏慵懶的當代女聲。窩在咖啡廳角落，伴隨鬆軟和弦與迷人煙燻嗓音忘卻塵囂。", "cover": "☕" },
             { "id": "9", "title": "極限交叉 (Crossfire Peak)", "mp3_url": "song9.mp3", "description": "男女搖滾對唱搭配 130 BPM 重低音節奏，專為高強度有氧與重訓破紀錄設計。", "cover": "💪" },
-            { "id": "10", "title": "城市脈衝 (Urban Pulse Dual)", "mp3_url": "song10.mp3", "description": "男聲饒舌與女聲高亢旋律交織，重拍重低音強烈卡點跑步步頻。", "cover": "🏃裝" },
+            { "id": "10", "title": "城市脈衝 (Urban Pulse Dual)", "mp3_url": "song10.mp3", "description": "男聲饒舌與女聲高亢旋律交織，重拍重低音強烈卡點跑步步頻。", "cover": "裝" },
             { "id": "11", "title": "極速覺醒 (Velocity Awakening)", "mp3_url": "song11.mp3", "description": "打破靜謐！用電子重拍與男女極速對唱，提起振奮精神克服沉悶。", "cover": "💥" },
             { "id": "12", "title": "脈衝風暴 (Pulse Storm)", "mp3_url": "song12.mp3", "description": "高能量男高音與女聲狂野合唱，重磅鼓點完美適配間歇性衝刺與深蹲挑戰。", "cover": "🌪️" },
             { "id": "13", "title": "超越極限 (Beyond limits)", "mp3_url": "song13.mp3", "description": "128 BPM 的超強重低音重拍！當高亢的女聲與爆發力十足的饒舌男聲交織，瞬間灌滿你的運動細胞，挑戰極限不再有藉口。", "cover": "⚡" },
@@ -256,13 +275,12 @@
         const publicTrackInfo = {
             "title": "Pavement Afterglow (都市餘暉)",
             "mp3_url": "public.mp3",
-            "description": "📻【官方公播主主打歌】優雅絲滑的現代 Neo-Soul 氛圍，慵懶女聲哼唱交織溫暖爵士電鋼琴，專為填補深夜空白與放鬆靈魂打造。"
+            "description": "📻【官方公播主打歌】優雅絲滑的現代 Neo-Soul 氛圍，慵懶女聲哼唱交織溫暖爵士電鋼琴，專為填補深夜空白與放鬆靈魂打造。"
         };
 
         let audioPlayer = new Audio();
         audioPlayer.loop = true;
 
-        // 🌟 初始化初始值
         let selectedLocTag = 'cyberpunk';
         let selectedLocName = '不夜霓虹城';
         let selectedStyleTag = 'citypop';
@@ -300,11 +318,7 @@
             wave.classList.remove('active');
 
             setTimeout(() => {
-                let finalSongId = "1"; // 安全牌預設
-
-                // 🌟 【不講道理的終極網頁防漏大絕招】：
-                // 我們直接抓目前画面上「哪一個按鈕被點亮（含有 active 類別）」，直接比對按鈕上的中文字！
-                // 這能徹底架空任何後台變數對不上的隱形 Bug，100% 直達你的原創歌！
+                let finalSongId = "1"; 
                 
                 const activeLocBtn = document.querySelector('.location-group .select-btn.active');
                 const activeMoodBtn = document.querySelector('.mood-group .select-btn.active');
@@ -312,19 +326,18 @@
                 const locText = activeLocBtn ? activeLocBtn.innerText : '';
                 const moodText = activeMoodBtn ? activeMoodBtn.innerText : '';
 
-                // ⚡ 只要點亮了含有「Fitness」或「運動重拍」的按鈕，立刻啟動絕對直達電路
+                // ⚡ 【精準中文字幕大腦】杜絕隨機跳歌 Bug 
                 if (moodText.includes('Fitness') || moodText.includes('運動重拍')) {
                     if (locText.includes('工作室') || locText.includes('studio')) { 
                         finalSongId = "15"; 
                     } else if (locText.includes('霓虹城') || locText.includes('cyberpunk')) { 
-                        finalSongId = "18"; // 🌌 不夜霓虹城 ➡️ 100% 鎖定 18 號《心動頻率》！
+                        finalSongId = "18"; // 不夜霓虹城 ➡️ 100% 綁定 18 號《心動頻率》
                     } else if (locText.includes('咖啡廳') || locText.includes('cafe')) { 
-                        finalSongId = "17"; // ☕ 咖啡廳 ➡️ 100% 鎖定 17 號《愛在雨季》！
+                        finalSongId = "17"; // 咖啡廳 ➡️ 100% 綁定 17 號《愛在雨季》
                     } else { 
                         finalSongId = "11"; 
                     }   
                 } else {
-                    // 其他日常風格的極簡直球對齊
                     if (moodText.includes('City Pop')) { finalSongId = "1"; }
                     else if (moodText.includes('Funk')) { finalSongId = "2"; }
                     else if (moodText.includes('Lo-fi')) {
@@ -339,9 +352,9 @@
                     }
                 }
 
-                // 精準抓取對應歌名
                 let matchedTrack = localMusicDatabase.find(track => track.id === finalSongId);
 
+                // 📻 公播退路安全機制完好隨時待命
                 if (!matchedTrack) {
                     audioPlayer.src = publicTrackInfo.mp3_url;
                     status.innerText = `📻 歡迎收聽夜貓子電台！`;
@@ -355,7 +368,6 @@
                 vinyl.classList.add('playing');
                 wave.classList.add('active');
                 
-                // 🔥 移除 load() 通道阻斷，改用安全承諾執行有聲命令
                 let playPromise = audioPlayer.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(error => {
@@ -365,7 +377,6 @@
             }, 1000);
         }
 
-        // 🌟 跨端解鎖：任意點擊頁面直接通電
         document.body.addEventListener('click', () => {
             if (audioPlayer.src && audioPlayer.paused && document.getElementById('vinylDisc').classList.contains('playing')) {
                 audioPlayer.play().catch(e => console.log("音訊解鎖中...", e));
