@@ -23,17 +23,17 @@
             scroll-behavior: smooth;
         }
 
-        /* 🌌 視覺淨化工程：大幅往右側與上方對齊，完美把左邊的黑色招牌與牆面裁切、隱藏到螢幕外面！ */
+        /* 🌌 華麗大謝幕：完美居中對齊你親自修好的純淨咖啡廳背景圖 */
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
             overflow-x: hidden;
             
-            /* 👑 運用漸層遮罩加深四周，並精準咬定你上傳的實體底圖 */
-            background: linear-gradient(rgba(15, 12, 27, 0.78), rgba(15, 12, 27, 0.85)), 
-                        url('bg.jpg.jpg');
-            background-size: 135%; /* 微幅放大，讓招牌徹底邊緣化 */
-            background-position: 72% 35%; /* 座標精準大平移！向右向上對齊，畫面中心只留下超美落地窗，把左側招牌完全推出螢幕外 */
+            /* 👑 這裡已經精準咬定 bg.jpg，並換回完美置中的黃金比例，疊加深夜質感濾鏡遮罩 */
+            background: linear-gradient(rgba(15, 12, 27, 0.75), rgba(15, 12, 27, 0.82)), 
+                        url('bg.jpg');
+            background-size: cover; /* 自動縮放填滿螢幕 */
+            background-position: center; /* 完美正中央對齊，展現你修圖後的最強全景 */
             background-repeat: no-repeat;
             background-attachment: fixed; /* 滾動時背景固定，營造頂級3D空間感 */
         }
@@ -65,7 +65,7 @@
         .btn-cta:hover { background: var(--main-pink); color: var(--bg-color); box-shadow: 0 0 25px var(--main-pink); transform: translateY(-3px); }
 
         .ai-dashboard {
-            background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(25px); /* 大幅增強磨砂玻璃透光質感 */
+            background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(25px); /* 磨砂玻璃透光質感 */
             padding: 40px; border-radius: 24px; max-width: 1150px; width: 100%;
             display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.65);
         }
@@ -136,9 +136,8 @@
 
         footer { text-align: center; padding: 40px; color: var(--text-sub); font-size: 14px; border-top: 1px solid var(--glass-border); margin-top: 60px; background: rgba(15, 12, 27, 0.5); backdrop-filter: blur(5px); }
 
-        /* 📱 手機板自適應：調整裁切比例，確保手機上看也完全沒有任何字 */
+        /* 📱 手機與平版板自適應優化 */
         @media (max-width: 768px) {
-            body { background-size: 180%; background-position: 80% 30%; }
             .nav-links { display: none; }
             #home h1 { font-size: 36px; }
             .ai-dashboard { grid-template-columns: 1fr; }
@@ -270,7 +269,7 @@
             { "id": "7", "title": "偷閒時光 (Lazy Tea Time)", "mp3_url": "song7.mp3", "description": "難得休假，輕鬆喝著下午茶。慵懶微醺的女聲爵士哼唱，讓你瞬間忘記所有煩惱。", "cover": "🍰" },
             { "id": "8", "title": "咖啡香氣 (Espresso Romance)", "mp3_url": "song8.mp3", "description": "節奏慵懶的當代女聲。窩在咖啡廳角落，伴隨鬆軟和弦與迷人煙燻嗓音忘卻塵囂。", "cover": "☕" },
             { "id": "9", "title": "極限交叉 (Crossfire Peak)", "mp3_url": "song9.mp3", "description": "男女搖滾對唱搭配 130 BPM 重低音節奏，專為高強度有氧與重訓破紀錄設計。", "cover": "💪" },
-            { "id": "10", "title": "城市脈衝 (Urban Pulse Dual)", "mp3_url": "song10.mp3", "description": "男聲饒舌與女聲高亢旋律交織，重拍重低音強烈卡點跑步步頻。", "cover": "🏃‍♂️" },
+            { "id": "10", "title": "城市脈衝 (Urban Pulse Dual)", "mp3_url": "song10.mp3", "description": "男聲饒舌與女聲高亢旋律交織，重拍重低音強烈卡點跑步步頻。", "cover": "🏃裝" },
             { "id": "11", "title": "極速覺醒 (Velocity Awakening)", "mp3_url": "song11.mp3", "description": "打破靜謐！用電子重拍與男女極速對唱，提起振奮精神克服沉悶。", "cover": "💥" },
             { "id": "12", "title": "脈衝風暴 (Pulse Storm)", "mp3_url": "song12.mp3", "description": "高能量男高音與女聲狂野合唱，重磅鼓點完美適配間歇性衝刺與深蹲挑戰。", "cover": "🌪️" },
             { "id": "13", "title": "超越極限 (Beyond limits)", "mp3_url": "song13.mp3", "description": "128 BPM 的超強重低音重拍！當高亢的女聲與爆發力十足的饒舌男聲交織，瞬間灌滿你的運動細胞，挑戰極限不再有藉口。", "cover": "⚡" },
