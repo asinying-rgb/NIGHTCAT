@@ -164,27 +164,27 @@
         <div class="ai-dashboard">
             <div class="control-panel">
                 
-                <div class="panel-label">📍 1. 挑選你想待的空間 | Select Location</div>
+                <div class="panel-label">📍 1. 挑選你想待的空間</div>
                 <div class="options-group location-group">
-                    <button class="select-btn active" onclick="selectLocation(this, 'cafe', '雨天咖啡廳 | Midnight Cafe')">☕ 雨天咖啡廳 | Midnight Cafe</button>
-                    <button class="select-btn" onclick="selectLocation(this, 'library', '安靜圖書館 | Quiet Library')">📚 安靜圖書館 | Quiet Library</button>
-                    <button class="select-btn" onclick="selectLocation(this, 'studio', '音樂工作室 | Music Studio')">🎛️ 音樂工作室 | Music Studio</button>
-                    <button class="select-btn" onclick="selectLocation(this, 'cyberpunk', '不夜霓虹城 | Neon Cyber City')">🌌 不夜霓虹城 | Neon Cyber City</button>
+                    <button class="select-btn active" onclick="selectLocation(this, 'cafe', '雨天咖啡廳')">☕ 咖啡廳</button>
+                    <button class="select-btn" onclick="selectLocation(this, 'library', '安靜圖書館')">📚 圖書館</button>
+                    <button class="select-btn" onclick="selectLocation(this, 'studio', '音樂工作室')">🎛️ 工作室</button>
+                    <button class="select-btn" onclick="selectLocation(this, 'cyberpunk', '不夜霓虹城')">🌌 不夜霓虹城</button>
                 </div>
 
-                <div class="panel-label">🎵 2. 挑一個對味的心情與風格 | Select Style</div>
+                <div class="panel-label">🎵 2. 挑一個對味的心情與風格</div>
                 <div class="options-group mood-group">
-                    <button class="select-btn active" onclick="selectMood(this, 'citypop', '浪漫 City Pop | Romantic City Pop')">🌆 浪漫 City Pop | Romantic City Pop</button>
-                    <button class="select-btn" onclick="selectMood(this, 'funk', '熱血 Funk 律動 | Energetic Funk Groove')">🎸 熱血 Funk 律動 | Energetic Funk Groove</button>
-                    <button class="select-btn" onclick="selectMood(this, 'lofi', '下午茶偷閒放鬆 | Afternoon Tea Lo-fi')">🎧 下午茶偷閒放鬆 | Afternoon Tea Lo-fi</button>
-                    <button class="select-btn" onclick="selectMood(this, 'synthwave', '🔮 霓虹 Synthwave | Retro Synthwave')">🔮 霓虹 Synthwave | Retro Synthwave</button>
-                    <button class="select-btn" onclick="selectMood(this, 'jazzhop', '☕ 慵懶 Jazz Hop | Lazy Jazz Hop')">🎷 ☕ 慵懶 Jazz Hop | Lazy Jazz Hop</button>
-                    <button class="select-btn" onclick="selectMood(this, 'neosoul', '🍰 咖啡廳慵懶微醺 | Cafe Neo-Soul')">🥁 🍰 咖啡廳慵懶微醺 | Cafe Neo-Soul</button>
-                    <button class="select-btn" onclick="selectMood(this, 'fitness', '⚡ 運動重拍合唱專區 | Fitness Duet Zone')">🏃‍♂️ ⚡ 運動重拍合唱專區 | Fitness Duet Zone</button>
+                    <button class="select-btn active" onclick="selectMood(this, 'citypop', '浪漫 City Pop')">🌆 City Pop</button>
+                    <button class="select-btn" onclick="selectMood(this, 'funk', '熱血 Funk 律動')">🎸 Funk 律動</button>
+                    <button class="select-btn" onclick="selectMood(this, 'lofi', '🍵 下午茶偷閒放鬆 (Lo-fi)')">🎧 Lo-fi 氛圍</button>
+                    <button class="select-btn" onclick="selectMood(this, 'synthwave', '🔮 霓虹 Synthwave')">🔮 Synthwave</button>
+                    <button class="select-btn" onclick="selectMood(this, 'jazzhop', '☕ 慵懶 Jazz Hop')">🎷 Jazz Hop</button>
+                    <button class="select-btn" onclick="selectMood(this, 'neosoul', '🍰 咖啡廳慵懶微醺 (Neo-Soul)')">🥁 Neo-Soul</button>
+                    <button class="select-btn" onclick="selectMood(this, 'fitness', '⚡ 運動重拍合唱專區')">🏃‍♂️ Fitness 專區</button>
                 </div>
 
-                <div class="panel-label">3. 播音員準備就位 | Radio DJ Ready</div>
-                <button class="btn-generate" onclick="queryLocalDatabase()">🪄 倒杯特調，開始放音樂 | Play Midnight Mix</button>
+                <div class="panel-label">3. 播音員準備就位</div>
+                <button class="btn-generate" onclick="queryLocalDatabase()">🪄 倒杯特調，開始放音樂</button>
             </div>
 
             <div class="player-panel">
@@ -210,7 +210,7 @@
 
     <section id="tracks">
         <h2 class="section-title">我的私房歌單全紀錄</h2>
-        <p class="section-subtitle">這裡躺著我所有的音樂收藏，包含豐富的男聲、女聲，以及讓人心跳加速的運動重拍，歡迎隨意翻閱。</p>
+        <p class="section-subtitle">這裡躺著我所有的音樂收藏，歡迎隨意翻閱。</p>
         <div class="music-grid" id="gridContainer"></div>
     </section>
 
@@ -227,50 +227,33 @@
         </div>
     </section>
 
-    <section id="contact">
-        <h2 class="section-title">聯絡與合作邀約</h2>
-        <p class="section-subtitle">留下你的私房旋律，或開啟全新的音樂火花</p>
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('感謝您的來信與暗號分享！');">
-            <div class="form-group">
-                <input type="text" placeholder="您的姓名 / 團隊名稱" required>
-            </div>
-            <div class="form-group">
-                <input type="email" placeholder="您的電子郵件" required>
-            </div>
-            <div class="form-group">
-                <textarea rows="5" placeholder="分享你的私房好歌給我，或者填寫合作邀約需求..." required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">送出暗號訊息</button>
-        </form>
-    </section>
-
     <footer>
         <p>&copy; 2026 Night Owl's Reverie. All Rights Reserved.</p>
     </footer>
 
     <script>
+        // 🌟 核心修正：手動加入一組防干擾唯一的 "id" 欄位，確保精準抓歌不亂跳
         const localMusicDatabase = [
-            { "title": "都市漫遊 (Urban Cruise)", "location_tags": ["cyberpunk"], "style_tags": ["citypop"], "mp3_url": "song1.mp3", "description": "伴隨不夜城的霓虹微光，開啟一段日系浪漫 City Pop 冒險。", "cover": "🌆" },
-            { "title": "節奏狂想 (Groove Rhapsody)", "location_tags": ["studio"], "style_tags": ["funk"], "mp3_url": "song2.mp3", "description": "極具躍動感的 Slap 貝斯律動，瞬間點燃深夜的工作靈感。", "cover": "🎸" },
-            { "title": "午後微醺 (Midnight Cafe)", "location_tags": ["cafe"], "style_tags": ["lofi"], "mp3_url": "song3.mp3", "description": "溫慢醇厚的雨天咖啡廳特調。低飽和度的 Lo-fi 顆粒重拍，是放鬆靈魂的解藥。", "cover": "🎧" },
-            { "title": "未來脈絡 (Future Core)", "location_tags": ["cyberpunk"], "style_tags": ["synthwave"], "mp3_url": "song4.mp3", "description": "復古未來賽博藍調。層層疊加的厚重復古鋸齒波，完美切換夜貓子的狂想視角。", "cover": "🔮" },
-            { "title": "深夜讀白 (Midnight Reader)", "location_tags": ["library"], "style_tags": ["jazzhop"], "mp3_url": "song5.mp3", "description": "專為深夜專注調配。慵懶的薩克斯風爵士旋律，交織冷冽的都市嘻哈重碎拍。", "cover": "🎷" },
-            { "title": "靈魂共鳴 (Soul Resonance)", "location_tags": ["cafe"], "style_tags": ["neosoul"], "mp3_url": "song6.mp3", "description": "觸動心弦的溫柔私語。鬆軟的爵士屬七和弦，帶來當代靈魂樂最愜意的律動。", "cover": "🥁" },
-            { "title": "偷閒時光 (Lazy Tea Time)", "location_tags": ["cafe", "studio"], "style_tags": ["lofi"], "mp3_url": "song7.mp3", "description": "難得休假，輕鬆喝著下午茶。慵懶微醺的女聲爵士哼唱，讓你瞬間忘記所有煩惱。", "cover": "🍰" },
-            { "title": "咖啡香氣 (Espresso Romance)", "location_tags": ["cafe"], "style_tags": ["neosoul"], "mp3_url": "song8.mp3", "description": "節奏慵懶的當代女聲。窩在咖啡廳角落，伴隨鬆軟和弦與迷人煙燻嗓音忘卻塵囂。", "cover": "☕" },
-            { "title": "極限交叉 (Crossfire Peak)", "location_tags": ["studio"], "style_tags": ["fitness"], "mp3_url": "song9.mp3", "description": "男女搖滾對唱搭配 130 BPM 重低音節奏，專為高強度有氧與重訓破紀錄設計。", "cover": "💪" },
-            { "title": "城市脈衝 (Urban Pulse Dual)", "location_tags": ["cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song10.mp3", "description": "男聲饒舌與女聲高亢旋律交織，重拍重低音強烈卡點跑步步頻。", "cover": "🏃‍♂️" },
-            { "title": "極速覺醒 (Velocity Awakening)", "location_tags": ["library"], "style_tags": ["fitness"], "mp3_url": "song11.mp3", "description": "打破靜謐！用電子重拍與男女極速對唱，提起振奮精神克服沉悶。", "cover": "💥" },
-            { "title": "脈衝風暴 (Pulse Storm)", "location_tags": ["cafe"], "style_tags": ["fitness"], "mp3_url": "song12.mp3", "description": "高能量男高音與女聲狂野合唱，重磅鼓點完美適配間歇性衝刺與深蹲挑戰。", "cover": "🌪️" },
-            { "title": "超越極限 (Beyond limits)", "location_tags": ["studio", "cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song13.mp3", "description": "128 BPM 的超強重低音重拍！當高亢的女聲與爆發力十足的饒舌男聲交織，瞬間灌滿你的運動細胞，挑戰極限不再有藉口。", "cover": "⚡" },
-            { "title": "熱血狂飆 (Hyperdrive)", "location_tags": ["cafe", "cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song14.mp3", "description": "專為高強度間歇訓練與重訓破紀錄調配。撕裂感十足的電子合成器搭配男女雙主唱極速對唱，提起今晚最振奮的精神！", "cover": "🔥" },
-            { "title": "重擊暗流 (Heavy Undercurrent)", "location_tags": ["studio"], "style_tags": ["fitness"], "mp3_url": "song15.mp3", "description": "【慢重拍主題】速度放慢的男女撕裂對唱，搭配拳拳到肉的沉重重低音鼓點，力量感拉滿！", "cover": "⏳" },
-            { "title": "霓虹深淵 (Neon Abyss Dual)", "location_tags": ["cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song16.mp3", "description": "【慢重拍主題】賽博城暗黑系男女低音對唱，慵懶與爆發力並存的慢速重鼓點，震撼耳膜。", "cover": "🕳️" },
-            { "title": "愛在雨季 (Love in the Rain)", "location_tags": ["cafe"], "style_tags": ["fitness"], "mp3_url": "song17.mp3", "description": "【全新抒情重拍】細雨微醺下的男女繾綣對唱。深刻的抒情慢節奏撞擊強烈重低音，歌詞點綴心動的靈魂對白。", "cover": "💞" },
-            { "title": "心動頻率 (Fluctuating Hearts)", "location_tags": ["cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song18.mp3", "description": "【全新抒情重拍】不夜霓虹城下的現代都市情歌。男女聲線纏繞交織，融入精緻英文深情重音歌詞，直擊情感核心。", "cover": "💓" }
+            { "id": "1", "title": "都市漫遊 (Urban Cruise)", "location_tags": ["cyberpunk"], "style_tags": ["citypop"], "mp3_url": "song1.mp3", "description": "伴隨不夜城的霓虹微光，開啟一段日系浪漫 City Pop 冒險。", "cover": "🌆" },
+            { "id": "2", "title": "節奏狂想 (Groove Rhapsody)", "location_tags": ["studio"], "style_tags": ["funk"], "mp3_url": "song2.mp3", "description": "極具躍動感的 Slap 貝斯律動，瞬間點燃深夜的工作靈感。", "cover": "🎸" },
+            { "id": "3", "title": "午後微醺 (Midnight Cafe)", "location_tags": ["cafe"], "style_tags": ["lofi"], "mp3_url": "song3.mp3", "description": "溫慢醇厚的雨天咖啡廳特調。低飽和度的 Lo-fi 顆粒重拍，是放鬆靈魂的解藥。", "cover": "🎧" },
+            { "id": "4", "title": "未來脈絡 (Future Core)", "location_tags": ["cyberpunk"], "style_tags": ["synthwave"], "mp3_url": "song4.mp3", "description": "復古未來賽博藍調。層層疊加的厚重復古鋸齒波，完美切換夜貓子的狂想視角。", "cover": "🔮" },
+            { "id": "5", "title": "深夜讀白 (Midnight Reader)", "location_tags": ["library"], "style_tags": ["jazzhop"], "mp3_url": "song5.mp3", "description": "專為深夜專注調配。慵懶的薩克斯風爵士旋律，交織冷冽的都市嘻哈重碎拍。", "cover": "🎷" },
+            { "id": "6", "title": "靈魂共鳴 (Soul Resonance)", "location_tags": ["cafe"], "style_tags": ["neosoul"], "mp3_url": "song6.mp3", "description": "觸動心弦的溫柔私語。鬆軟的爵士屬七和弦，帶來當代靈魂樂最愜意的律動。", "cover": "🥁" },
+            { "id": "7", "title": "偷閒時光 (Lazy Tea Time)", "location_tags": ["cafe", "studio"], "style_tags": ["lofi"], "mp3_url": "song7.mp3", "description": "難得休假，輕鬆喝著下午茶。慵懶微醺的女聲爵士哼唱，讓你瞬間忘記所有煩惱。", "cover": "🍰" },
+            { "id": "8", "title": "咖啡香氣 (Espresso Romance)", "location_tags": ["cafe"], "style_tags": ["neosoul"], "mp3_url": "song8.mp3", "description": "節奏慵懶的當代女聲。窩在咖啡廳角落，伴隨鬆軟和弦與迷人煙燻嗓音忘卻塵囂。", "cover": "☕" },
+            { "id": "9", "title": "極限交叉 (Crossfire Peak)", "location_tags": ["studio"], "style_tags": ["fitness"], "mp3_url": "song9.mp3", "description": "男女搖滾對唱搭配 130 BPM 重低音節奏，專為高強度有氧與重訓破紀錄設計。", "cover": "💪" },
+            { "id": "10", "title": "城市脈衝 (Urban Pulse Dual)", "location_tags": ["cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song10.mp3", "description": "男聲饒舌與女聲高亢旋律交織，重拍重低音強烈卡點跑步步頻。", "cover": "🏃‍♂️" },
+            { "id": "11", "title": "極速覺醒 (Velocity Awakening)", "location_tags": ["library"], "style_tags": ["fitness"], "mp3_url": "song11.mp3", "description": "打破靜謐！用電子重拍與男女極速對唱，提起振奮精神克服沉悶。", "cover": "💥" },
+            { "id": "12", "title": "脈衝風暴 (Pulse Storm)", "location_tags": ["cafe"], "style_tags": ["fitness"], "mp3_url": "song12.mp3", "description": "高能量男高音與女聲狂野合唱，重磅鼓點完美適配間歇性衝刺與深蹲挑戰。", "cover": "🌪️" },
+            { "id": "13", "title": "超越極限 (Beyond limits)", "location_tags": ["studio", "cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song13.mp3", "description": "128 BPM 的超強重低音重拍！當高亢的女聲與爆發力十足的饒舌男聲交織，瞬間灌滿你的運動細胞，挑戰極限不再有藉口。", "cover": "⚡" },
+            { "id": "14", "title": "熱血狂飆 (Hyperdrive)", "location_tags": ["cafe", "cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song14.mp3", "description": "專為高強度間歇訓練與重訓破紀錄調配。撕裂感十足的電子合成器搭配男女雙主唱極速對唱，提起今晚最振奮的精神！", "cover": "🔥" },
+            { "id": "15", "title": "重擊暗流 (Heavy Undercurrent)", "location_tags": ["studio"], "style_tags": ["fitness"], "mp3_url": "song15.mp3", "description": "【慢重拍主題】速度放慢的男女撕裂對唱，搭配拳拳到肉的沉重重低音鼓點，力量感拉滿！", "cover": "⏳" },
+            { "id": "16", "title": "霓虹深淵 (Neon Abyss Dual)", "location_tags": ["cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song16.mp3", "description": "【慢重拍主題】賽博城暗黑系男女低音對唱，慵懶與爆發力並存的慢速重鼓點，震撼耳膜。", "cover": "🕳️" },
+            { "id": "17", "title": "愛在雨季 (Love in the Rain)", "location_tags": ["cafe"], "style_tags": ["fitness"], "mp3_url": "song17.mp3", "description": "【全新抒情重拍】細雨微醺下的男女微對唱。深刻的抒情慢節奏撞擊強烈重低音，歌詞點綴心動的靈魂對白。", "cover": "💞" },
+            { "id": "18", "title": "心動頻率 (Fluctuating Hearts)", "location_tags": ["cyberpunk"], "style_tags": ["fitness"], "mp3_url": "song18.mp3", "description": "【全新抒情重拍】不夜霓虹城下的現代都市情歌。男女聲線纏繞交織，融入精緻英文深情重音歌詞，直擊情感核心。", "cover": "💓" }
         ];
 
-        // 🌟 備用公播主打歌
         const publicTrackInfo = {
             "title": "Pavement Afterglow (都市餘暉)",
             "mp3_url": "public.mp3",
@@ -280,10 +263,11 @@
         let audioPlayer = new Audio();
         audioPlayer.loop = true;
 
-        let selectedLocTag = 'cafe';
-        let selectedLocName = '雨天咖啡廳 | Midnight Cafe';
+        // 🌟 初始化初始值（預設畫面 active 按鈕是不夜霓虹城 + City Pop）
+        let selectedLocTag = 'cyberpunk';
+        let selectedLocName = '不夜霓虹城';
         let selectedStyleTag = 'citypop';
-        let selectedStyleName = '浪漫 City Pop | Romantic City Pop';
+        let selectedStyleName = '浪漫 City Pop';
 
         window.addEventListener('DOMContentLoaded', () => {
             renderMusicGrid();         
@@ -292,14 +276,14 @@
         function selectLocation(element, tag, chName) {
             document.querySelectorAll('.location-group .select-btn').forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
-            selectedLocTag = tag;
+            selectedLocTag = tag.toString().trim();
             selectedLocName = chName;
         }
 
         function selectMood(element, tag, chName) {
             document.querySelectorAll('.mood-group .select-btn').forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
-            selectedStyleTag = tag;
+            selectedStyleTag = tag.toString().trim();
             selectedStyleName = chName;
         }
 
@@ -312,46 +296,67 @@
             if(!status || !style || !vinyl || !wave) return;
 
             audioPlayer.pause();
-            status.innerText = "☕ 正在幫你從架上挑選黑膠... | Selecting Vinyl...";
-            style.innerHTML = `正在為你營造 <b>[${selectedLocName}]</b> 的 <b>[${selectedStyleName}]</b> 氛圍...`;
+            status.innerText = "☕ 正在幫你從架上挑選黑膠...";
             vinyl.classList.remove('playing');
             wave.classList.remove('active');
 
             setTimeout(() => {
-                // 1. 優先進行精準交叉配對（空間＋曲風）
-                let matchedTrack = localMusicDatabase.find(track => 
-                    track.location_tags.includes(selectedLocTag) && track.style_tags.includes(selectedStyleTag)
-                );
+                let finalSongId = "1"; // 預設安全牌
 
-                // 2. 次要曲風配對（如果精準找不到，就在該曲風下隨機抽歌）
-                if (!matchedTrack) {
-                    let tracksWithStyle = localMusicDatabase.filter(track => track.style_tags.includes(selectedStyleTag));
-                    if (tracksWithStyle.length > 0) {
-                        matchedTrack = tracksWithStyle[Math.floor(Math.random() * tracksWithStyle.length)];
+                // 🌟 【硬核物理分流電路】當用戶選取了特定空間組合，100% 強制綁定指定 ID，徹底架空 Math.random()！
+                if (selectedStyleTag === 'fitness') {
+                    if (selectedLocTag === 'studio') { finalSongId = "15"; }      // 工作室 ➡️ 15 號（重擊暗流）
+                    else if (selectedLocTag === 'cyberpunk') { finalSongId = "18"; } // 不夜霓虹城 ➡️ 18 號（心動頻率）
+                    else if (selectedLocTag === 'cafe') { finalSongId = "17"; }      // 咖啡廳 ➡️ 17 號（愛在雨季）
+                    else if (selectedLocTag === 'library') { finalSongId = "11"; }   // 圖書館 ➡️ 11 號
+                } else {
+                    // 其他溫柔情境曲風的穩定映射
+                    if (selectedStyleTag === 'citypop') { finalSongId = "1"; }
+                    else if (selectedStyleTag === 'funk') { finalSongId = "2"; }
+                    else if (selectedStyleTag === 'lofi') {
+                        if (selectedLocTag === 'studio') { finalSongId = "7"; }
+                        else { finalSongId = "3"; }
+                    }
+                    else if (selectedStyleTag === 'synthwave') { finalSongId = "4"; }
+                    else if (selectedStyleTag === 'jazzhop') { finalSongId = "5"; }
+                    else if (selectedStyleTag === 'neosoul') {
+                        if (selectedLocTag === 'cafe') { finalSongId = "8"; }
+                        else { finalSongId = "6"; }
                     }
                 }
 
-                // 3. 退路公播歌機制
+                // 🌟 利用剛剛補齊的 id 欄位進行精準匹配
+                let matchedTrack = localMusicDatabase.find(track => track.id === finalSongId);
+
                 if (!matchedTrack) {
                     audioPlayer.src = publicTrackInfo.mp3_url;
-                    status.innerText = `📻 歡迎收聽夜貓子電台！ | Welcome to the Night Radio!`;
-                    style.innerHTML = `<b>正在播放 | Now Playing：</b>${publicTrackInfo.title}<br><b>當前氣氛 | Vibe：</b>${selectedStyleName} (公播推薦)<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${publicTrackInfo.description}</span>`;
+                    status.innerText = `📻 歡迎收聽夜貓子電台！`;
+                    style.innerHTML = `<b>正在播放：</b>${publicTrackInfo.title}<br><b>當前氣氛：</b>${selectedStyleName} (公播推薦)<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${publicTrackInfo.description}</span>`;
                 } else {
-                    // 4. 全線通車：順暢播放 1-18 號實體歌曲
                     audioPlayer.src = matchedTrack.mp3_url;
-                    status.innerText = `✨ 唱針落下了！ | Needle Dropped!`;
-                    style.innerHTML = `<b>正在播放 | Now Playing：</b>${matchedTrack.title}<br><b>當前氣氛 | Vibe：</b>${selectedStyleName}<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${matchedTrack.description}</span>`;
+                    status.innerText = `✨ 唱針落下了！`;
+                    style.innerHTML = `<b>正在播放：</b>${matchedTrack.title}<br><b>當前氣氛：</b>${selectedStyleName}<br><span style="color:#5CE1E6; font-size:12px; display:inline-block; margin-top:5px;">${matchedTrack.description}</span>`;
                 }
 
-                audioPlayer.load();
                 vinyl.classList.add('playing');
                 wave.classList.add('active');
                 
-                audioPlayer.play().catch(error => {
-                    console.log("自動播放安全機制提示", error);
-                });
-            }, 1200);
+                // 🔥 移除不穩定的 load() 阻斷，直接執行跨端發聲命令
+                let playPromise = audioPlayer.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("等待點擊畫面解鎖音訊...", error);
+                    });
+                }
+            }, 1000);
         }
+
+        // 🌟 終極通電保險絲：只要使用者在網頁上點選任何地方，當前加載的正確曲目就會被強力推動發聲
+        document.body.addEventListener('click', () => {
+            if (audioPlayer.src && audioPlayer.paused && document.getElementById('vinylDisc').classList.contains('playing')) {
+                audioPlayer.play().catch(e => console.log("音訊背景解鎖中...", e));
+            }
+        });
 
         function renderMusicGrid() {
             const container = document.getElementById('gridContainer');
@@ -364,22 +369,6 @@
                 card.innerHTML = `
                     <div class="cover-art">${track.cover}</div>
                     <h3>${track.title}</h3>
-                    <p style="color: #7d7890; margin-bottom: 8px; font-size: 12px;">收藏情境: ${track.location_tags.map(t => {
-                        if(t==='cafe') return '雨天咖啡廳 | Midnight Cafe';
-                        if(t==='library') return '安靜圖書館 | Quiet Library';
-                        if(t==='studio') return '音樂工作室 | Music Studio';
-                        if(t==='cyberpunk') return '不夜霓虹城 | Neon Cyber City';
-                        return t;
-                    }).join(', ')} <br> 曲風: ${track.style_tags.map(s => {
-                        if(s==='citypop') return '浪漫 City Pop | Romantic City Pop';
-                        if(s==='funk') return '熱血 Funk 律動 | Energetic Funk Groove';
-                        if(s==='lofi') return '下午茶偷閒放鬆 | Afternoon Tea Lo-fi';
-                        if(s==='synthwave') return '🔮 霓虹 Synthwave | Retro Synthwave';
-                        if(s==='jazzhop') return '☕ 慵懶 Jazz Hop | Lazy Jazz Hop';
-                        if(s==='neosoul') return '🍰 咖啡廳慵懶微醺 | Cafe Neo-Soul';
-                        if(s==='fitness') return '⚡ 運動重拍合唱專區 | Fitness Duet Zone';
-                        return s;
-                    }).join(', ')}</p>
                     <p>${track.description}</p>
                 `;
                 container.appendChild(card);
