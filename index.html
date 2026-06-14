@@ -71,7 +71,7 @@
             max-width: 750px;
             line-height: 1.6;
             padding: 10px 25px;
-            background: rgba(11, 9, 20, 0.5); /* 🎯 秘密電路：在文字背後墊一層極淡的黑夜發光遮罩 */
+            background: rgba(11, 9, 20, 0.5); 
             border-radius: 50px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8); 
@@ -112,7 +112,7 @@
         .btn-generate {
             background: linear-gradient(45deg, var(--main-pink), #ed799d); color: #0d0a17; border: none;
             padding: 16px; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer;
-            transition: 0.3s; box-shadow: 0 0 15px geometry(229, 91, 133, 0.4); margin-top: 10px;
+            transition: 0.3s; box-shadow: 0 0 15px rgba(229, 91, 133, 0.4); margin-top: 10px;
         }
         .btn-generate:hover { transform: translateY(-2px); box-shadow: 0 0 25px var(--main-pink); }
 
@@ -317,13 +317,15 @@
             { "id": "15", "title": "重擊暗流 (Heavy Undercurrent)", "mp3_url": "song15.mp3", "description": "【慢重拍主題】速度放慢的男女撕裂對唱，搭配拳拳到肉的沉重重低音鼓點，力量感拉滿！", "cover": "⏳" },
             { "id": "16", "title": "霓虹深淵 (Neon Abyss Dual)", "mp3_url": "song16.mp3", "description": "【慢重拍主題】賽博城暗黑系男女低音對唱，慵懶與爆發力並存的慢速重鼓點，震撼耳膜。", "cover": "🕳️" },
             { "id": "17", "title": "愛在雨季 (Love in the Rain)", "mp3_url": "song17.mp3", "description": "【全新抒情重拍】細雨微醺下的男女微對唱。深刻的抒情慢節奏撞擊強烈重低音，歌詞點綴心動的靈魂對白。", "cover": "💞" },
-            { "id": "18", "title": "心動頻率 (Fluctuating Hearts)", "mp3_url": "song18.mp3", "description": "【全新抒情重拍】不夜霓虹城下的現代都市情歌。男女聲線繞交織，融入精緻英文深情重音歌詞，直擊情感核心。", "cover": "💓" }
+            { "id": "18", "title": "心動頻率 (Fluctuating Hearts)", "mp3_url": "song18.mp3", "description": "【全新抒情重拍】不夜霓虹城下的現代都市情歌。男女聲線繞交織，融入精緻英文深情重音歌詞，直擊情感核心。", "cover": "💓" },
+            { "id": "19", "title": "分合定格 (Freeze Frame)", "mp3_url": "song19.mp3", "description": "【戀人分合主題】刻畫戀人無數次轉身卻又忍不住回頭的心碎重拍。男女對唱的聲線起伏，訴說著分分合合的靈魂糾纏。", "cover": "🥀" },
+            { "id": "20", "title": "酸甜四季 (Four Seasons of Us)", "mp3_url": "song20.mp3", "description": "【戀人點滴主題】重拍打擊點完美咬合喜怒哀樂的點滴記憶。溫慢電鋼琴與強烈重低音碰撞，珍藏那些吵架與和好的歲月痕跡。", "cover": "📅" }
         ];
 
         const publicTrackInfo = {
             "title": "Pavement Afterglow (都市餘暉)",
             "mp3_url": "public.mp3",
-            "description": "📻【官方公播主主打歌】優雅絲滑的現代 Neo-Soul 氛圍，慵懶女聲哼唱交織溫暖爵士電鋼琴，專為填補深夜空白與放鬆靈魂打造。"
+            "description": "📻【官方公播主打歌】優雅絲滑的現代 Neo-Soul 氛圍，慵懶女聲哼唱交織溫暖爵士電鋼琴，專為填補深夜空白與放鬆靈魂打造。"
         };
 
         let audioPlayer = new Audio();
@@ -374,12 +376,19 @@
                 const locText = activeLocBtn ? activeLocBtn.innerText : '';
                 const moodText = activeMoodBtn ? activeMoodBtn.innerText : '';
 
-                // ⚡ 雙語融合智慧大腦：不論中英文怎麼交織，只要點到關鍵字一律 100% 精準切換！
+                // 👑 點播大腦全面解耦、修正重複分配：將新歌完美打散
                 if (moodText.includes('Fitness') || moodText.includes('運動重拍')) {
-                    if (locText.includes('工作室') || locText.includes('studio')) { finalSongId = "15"; }
-                    else if (locText.includes('霓虹城') || locText.includes('cyberpunk')) { finalSongId = "18"; }
-                    else if (locText.includes('咖啡廳') || locText.includes('cafe')) { finalSongId = "17"; }
-                    else { finalSongId = "11"; }   
+                    if (locText.includes('圖書館') || locText.includes('library')) { 
+                        finalSongId = "19"; // 📚 圖書館專屬：第 19 首 (分合定格)
+                    } else if (locText.includes('工作室') || locText.includes('studio')) { 
+                        finalSongId = "15"; // 🎛️ 工作室專屬：第 15 首 (重擊暗流)
+                    } else if (locText.includes('咖啡廳') || locText.includes('cafe')) { 
+                        finalSongId = "20"; // ☕ 咖啡廳專屬：第 20 首 (酸甜四季)
+                    } else if (locText.includes('霓虹城') || locText.includes('cyberpunk')) { 
+                        finalSongId = "18"; // 🌌 霓虹城專屬：第 18 首 (心動頻率)
+                    } else { 
+                        finalSongId = "11"; 
+                    }   
                 } else {
                     if (moodText.includes('City Pop')) { finalSongId = "1"; }
                     else if (moodText.includes('Funk')) { finalSongId = "2"; }
@@ -413,7 +422,7 @@
                 let playPromise = audioPlayer.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(error => {
-                        console.log("等待用戶點擊畫面...", error);
+                        console.log("等待點擊解除鎖定...", error);
                     });
                 }
             }, 1000);
@@ -421,7 +430,7 @@
 
         document.body.addEventListener('click', () => {
             if (audioPlayer.src && audioPlayer.paused && document.getElementById('vinylDisc').classList.contains('playing')) {
-                audioPlayer.play().catch(e => console.log("解鎖音訊通道...", e));
+                audioPlayer.play().catch(e => console.log("解鎖通道...", e));
             }
         });
 
