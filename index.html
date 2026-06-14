@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>夜貓子的狂想 | Night Owl's Reverie</title>
     <style>
-        /* 🎨 全域變數：極致高對比「深夜暗光控制面板」二度調暗完美配方 */
+        /* 🎨 全域變數：極致高對比「深夜暗光控制面板」完美配方 */
         :root {
-            --bg-color: #0b0914;      /* 網頁底色改為極致深色 */
-            --main-pink: #E55B85;     /* 閃耀粉紅霓虹 */
-            --sub-cyan: #5CE1E6;      /* 搶眼青綠霓虹 */
-            --text-main: #ffffff;     /* 面板內主文字：純白 */
-            --text-sub: #b1adca;      /* 面板內次文字：淡紫 */
-            --card-bg: rgba(10, 8, 18, 0.88);  /* 💎 卡片再調暗、再加厚，徹底隔絕背光 */
-            --glass-bg: rgba(10, 8, 18, 0.92); /* 💎 主控制台面盤大幅加深加濃，給字體最強靠山 */
+            --bg-color: #0b0914;      
+            --main-pink: #E55B85;     
+            --sub-cyan: #5CE1E6;      
+            --text-main: #ffffff;     
+            --text-sub: #b1adca;      
+            --card-bg: rgba(10, 8, 18, 0.88);  
+            --glass-bg: rgba(10, 8, 18, 0.92); 
             --glass-border: rgba(255, 255, 255, 0.06);
         }
 
@@ -29,7 +29,6 @@
             color: #ffffff;
             overflow-x: hidden;
             
-            /* 👑 關鍵調暗：將圖片上方的黑色遮罩大幅加厚（從 0.35/0.68 大幅調暗至 0.60/0.85） */
             background: linear-gradient(rgba(11, 9, 20, 0.60), rgba(11, 9, 20, 0.85)), 
                         url('bg.jpg');
             background-size: cover; 
@@ -53,25 +52,29 @@
 
         section { padding: 120px 10% 80px 10%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         
-        /* 👑 標題與你提到的那兩句文字優化：全面改為純白，並補上強烈黑影、徹底消除霧感 */
+        /* 👑 標題與副標題極致清晰強化：加入微醺暗色文字底襯，徹底杜絕亮亮霧霧的穿幫問題 */
         .section-title { 
             font-size: 36px; 
             margin-bottom: 15px; 
             text-align: center; 
             letter-spacing: 2px; 
-            color: #ffffff; /* 改為純白 */
+            color: #ffffff; 
             font-weight: bold; 
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9), 0 4px 30px rgba(0, 0, 0, 1); /* 強烈深黑陰影托底 */
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9), 0 4px 30px rgba(0, 0, 0, 1); 
         }
         .section-subtitle { 
-            color: #c5c2db; /* 改為極度清晰的亮淡紫色 */
+            color: #ffffff; 
             margin-bottom: 50px; 
             font-size: 16px; 
             text-align: center; 
             font-weight: bold; 
-            max-width: 700px;
+            max-width: 750px;
             line-height: 1.6;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 1); /* 強烈深黑陰影托底 */
+            padding: 10px 25px;
+            background: rgba(11, 9, 20, 0.5); /* 🎯 秘密電路：在文字背後墊一層極淡的黑夜發光遮罩 */
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8); 
         }
 
         #home { text-align: center; background: transparent; }
@@ -85,7 +88,6 @@
         }
         .btn-cta:hover { background: var(--main-pink); color: #0b0914; box-shadow: 0 0 25px var(--main-pink); transform: translateY(-3px); }
 
-        /* 🎛️ 控制面板：再度加黑至 0.92，讓面板內的字與按鈕像黑夜中的霓虹燈一樣極致清晰 */
         .ai-dashboard {
             background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(30px); 
             padding: 40px; border-radius: 24px; max-width: 1150px; width: 100%;
@@ -110,7 +112,7 @@
         .btn-generate {
             background: linear-gradient(45deg, var(--main-pink), #ed799d); color: #0d0a17; border: none;
             padding: 16px; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer;
-            transition: 0.3s; box-shadow: 0 0 15px rgba(229, 91, 133, 0.4); margin-top: 10px;
+            transition: 0.3s; box-shadow: 0 0 15px geometry(229, 91, 133, 0.4); margin-top: 10px;
         }
         .btn-generate:hover { transform: translateY(-2px); box-shadow: 0 0 25px var(--main-pink); }
 
@@ -153,7 +155,7 @@
         .contact-form { max-width: 600px; width: 100%; display: flex; flex-direction: column; gap: 20px; background: var(--glass-bg); padding: 40px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(25px); box-shadow: 0 25px 50px rgba(0,0,0,0.6); }
         .form-group input, .form-group textarea {
             width: 100%; padding: 16px; 
-            background: rgba(0, 0, 0, 0.5); /* 這裡也同步加深黑底 */
+            background: rgba(0, 0, 0, 0.5); 
             border: 1px solid var(--glass-border); 
             border-radius: 10px; 
             color: #ffffff; 
@@ -181,6 +183,7 @@
             .player-panel { border-left: none; padding-left: 0; padding-top: 40px; border-top: 1px solid var(--glass-border); }
             .about-content { flex-direction: column; text-align: center; padding: 20px; }
             .contact-form { padding: 20px; }
+            .section-subtitle { padding: 10px 15px; border-radius: 20px; }
         }
     </style>
 </head>
@@ -220,13 +223,13 @@
 
                 <div class="panel-label">🎵 2. 挑一個對味的心情與風格</div>
                 <div class="options-group mood-group">
-                    <button class="select-btn active" onclick="selectMood(this, 'citypop', '浪漫 City Pop')">🌆 City Pop</button>
-                    <button class="select-btn" onclick="selectMood(this, 'funk', '熱血 Funk 律動')">🎸 Funk 律動</button>
-                    <button class="select-btn" onclick="selectMood(this, 'lofi', '🍵 下午茶偷閒放鬆 (Lo-fi)')">🎧 Lo-fi 氛圍</button>
-                    <button class="select-btn" onclick="selectMood(this, 'synthwave', '🔮 霓虹 Synthwave')">🔮 Synthwave</button>
-                    <button class="select-btn" onclick="selectMood(this, 'jazzhop', '☕ 慵懶 Jazz Hop')">🎷 Jazz Hop</button>
-                    <button class="select-btn" onclick="selectMood(this, 'neosoul', '🍰 咖啡廳慵懶微醺 (Neo-Soul)')">🥁 Neo-Soul</button>
-                    <button class="select-btn" onclick="selectMood(this, 'fitness', '⚡ 運動重拍合唱專區')">🏃‍♂️ Fitness 專區</button>
+                    <button class="select-btn active" onclick="selectMood(this, 'citypop', '🌆 浪漫 City Pop')">🌆 浪漫 City Pop</button>
+                    <button class="select-btn" onclick="selectMood(this, 'funk', '🎸 熱血 Funk 律動')">🎸 熱血 Funk 律動</button>
+                    <button class="select-btn" onclick="selectMood(this, 'lofi', '🎧 Lo-fi 放鬆氛圍')">🎧 Lo-fi 放鬆氛圍</button>
+                    <button class="select-btn" onclick="selectMood(this, 'synthwave', '🔮 霓虹 Synthwave')">🔮 霓虹 Synthwave</button>
+                    <button class="select-btn" onclick="selectMood(this, 'jazzhop', '🎷 慵懶 Jazz Hop')">🎷 慵懶 Jazz Hop</button>
+                    <button class="select-btn" onclick="selectMood(this, 'neosoul', '🥁 微醺 Neo-Soul')">🥁 微醺 Neo-Soul</button>
+                    <button class="select-btn" onclick="selectMood(this, 'fitness', '🏃‍♂️ Fitness 運動重拍')">🏃‍♂️ Fitness 運動重拍</button>
                 </div>
 
                 <div class="panel-label">3. 播音員準備就位</div>
@@ -320,7 +323,7 @@
         const publicTrackInfo = {
             "title": "Pavement Afterglow (都市餘暉)",
             "mp3_url": "public.mp3",
-            "description": "📻【官方公播主打歌】優雅絲滑的現代 Neo-Soul 氛圍，慵懶女聲哼唱交織溫暖爵士電鋼琴，專為填補深夜空白與放鬆靈魂打造。"
+            "description": "📻【官方公播主主打歌】優雅絲滑的現代 Neo-Soul 氛圍，慵懶女聲哼唱交織溫暖爵士電鋼琴，專為填補深夜空白與放鬆靈魂打造。"
         };
 
         let audioPlayer = new Audio();
@@ -371,6 +374,7 @@
                 const locText = activeLocBtn ? activeLocBtn.innerText : '';
                 const moodText = activeMoodBtn ? activeMoodBtn.innerText : '';
 
+                // ⚡ 雙語融合智慧大腦：不論中英文怎麼交織，只要點到關鍵字一律 100% 精準切換！
                 if (moodText.includes('Fitness') || moodText.includes('運動重拍')) {
                     if (locText.includes('工作室') || locText.includes('studio')) { finalSongId = "15"; }
                     else if (locText.includes('霓虹城') || locText.includes('cyberpunk')) { finalSongId = "18"; }
