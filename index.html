@@ -228,7 +228,7 @@
                     <button class="select-btn" onclick="selectMood(this, 'synthwave', '🔮 霓虹 Synthwave')">🔮 霓虹 Synthwave</button>
                     <button class="select-btn" onclick="selectMood(this, 'jazzhop', '🎷 慵懶 Jazz Hop')">🎷 慵懶 Jazz Hop</button>
                     <button class="select-btn" onclick="selectMood(this, 'neosoul', '🥁 微醺 Neo-Soul')">🥁 微醺 Neo-Soul</button>
-                    <button class="select-btn" onclick="selectMood(this, 'fitness', '🏃‍♂️ Fitness 運動重拍')">🏃‍♂️ Fitness 運動重拍</button>
+                    <button class="select-btn" onclick="selectMood(this, 'fitness', '🏃‍♂️ Fitness 專區')">🏃‍♂️ Fitness 專區</button>
                 </div>
 
                 <div class="panel-label">3. 播音員準備就位</div>
@@ -299,7 +299,7 @@
 
     <script>
         const localMusicDatabase = [
-            { "id": "1", "title": "都市漫遊 (Urban Cruise)", "mp3_url": "song1.mp3", "description": "伴隨不夜城的霓虹微光，開啟一段日系浪漫 City Pop 冒險。", "cover": "🌆" },
+            { "id": "1", "title": "都市漫遊 (Urban Cruise)", "mp3_url": "song1.mp3", "description": "【📚 圖書館獨家專屬】陪伴不夜城的霓虹微光，開啟一段日系浪漫 City Pop 冒險。", "cover": "🌆" },
             { "id": "2", "title": "節奏狂想 (Groove Rhapsody)", "mp3_url": "song2.mp3", "description": "極具躍動感的 Slap 貝斯律動，瞬間點燃深夜的工作靈感。", "cover": "🎸" },
             { "id": "3", "title": "午後微醺 (Midnight Cafe)", "mp3_url": "song3.mp3", "description": "溫慢醇厚的雨天咖啡廳特調。低飽和度的 Lo-fi 顆粒重拍，是放鬆靈魂的解藥。", "cover": "🎧" },
             { "id": "4", "title": "未來脈絡 (Future Core)", "mp3_url": "song4.mp3", "description": "復古未來賽博藍調。層層疊加的厚重復古鋸齒波，完美切換夜貓子的狂想視角。", "cover": "🔮" },
@@ -318,13 +318,15 @@
             { "id": "17", "title": "愛在雨季 (Love in the Rain)", "mp3_url": "song17.mp3", "description": "【全新抒情重拍】細雨微醺下的男女微對唱。深刻的抒情慢節奏撞擊強烈重低音，歌詞點綴心動的靈魂對白。", "cover": "💞" },
             { "id": "18", "title": "心動頻率 (Fluctuating Hearts)", "mp3_url": "song18.mp3", "description": "【全新抒情重拍】不夜霓虹城下的現代都市情歌。男女聲線纏繞交織，融入精緻英文深情重音歌詞，直擊情感核心。", "cover": "💓" },
             { "id": "19", "title": "分合定格 (Freeze Frame)", "mp3_url": "song19.mp3", "description": "【戀人分合主題】刻畫戀人無數次轉身卻又忍不住回頭的心碎重拍。男女對唱的聲線起伏，訴說著分分合合的靈魂糾纏。", "cover": "🥀" },
-            { "id": "20", "title": "酸甜四季 (Four Seasons of Us)", "mp3_url": "song20.mp3", "description": "【戀人點滴主題】重拍打擊點完美咬合喜怒哀樂的點滴記憶。溫慢電鋼琴與強烈重低音碰撞，珍藏那些吵架與和好的歲月痕跡。", "cover": "📅" },
+            { "id": "20", "title": "酸甜四季 (Four Seasons of Us)", "mp3_url": "song20.mp3", "description": "【戀人點滴主題】重拍打擊點完美咬合喜怒哀樂 the 點滴記憶。溫慢電鋼琴與強烈重低音碰撞，珍藏那些吵架與和好的歲月痕跡。", "cover": "📅" },
             { "id": "21", "title": "光芒未完 (The Last Chorus)", "mp3_url": "song21.mp3", "description": "【散場大合唱主題】活動落幕前的最後高潮。慵懶爵士鋼琴交織強烈靈魂重拍，迎來爆發力十足的男女齊聲大合唱，不捨中帶有明日相聚的溫暖希望。", "cover": "🌟" },
             { "id": "22", "title": "星幕散場 (Curtain Call Glow)", "mp3_url": "song22.mp3", "description": "【散場大合唱主題】夜幕將卸，全場霓虹亮起。微醺的小號藍調旋律伴隨萬人現場大合唱的和聲，將彼此攜手離場的不捨定格在感動的最後一刻。", "cover": "✨" },
-            { "id": "23", "title": "慵懶午後 (Lazy Afternoon Vibe)", "mp3_url": "song23.mp3", "description": "【全新女聲 Lo-fi 主題】專為雨天咖啡廳打造。鬆軟的爵士吉他采样，襯托出慵懶的女聲哼唱與極具包覆感的低音重拍，輕柔治癒。", "cover": "☕" },
+            { "id": "23", "title": "慵懶午後 (Lazy Afternoon Vibe)", "mp3_url": "song23.mp3", "description": "【全新女聲 Lo-fi 主題】專為雨天咖啡廳打造。鬆軟的爵士吉他採樣，襯托出慵懶的女聲哼唱與極具包覆感的低音重拍，輕柔治癒。", "cover": "☕" },
             { "id": "24", "title": "霓虹泡泡 (Neon Bubble Dream)", "mp3_url": "song24.mp3", "description": "【全新女聲 Lo-fi 主題】都市地底酒吧的迷幻縮影。帶著極佳迴音的空靈女聲低語，在繁華與孤獨交織的深夜裡調配出最舒適的私人夢境。", "cover": "🫧" },
             { "id": "25", "title": "書頁微光 (Pages & Dawn)", "mp3_url": "song25.mp3", "description": "【全新男聲 Lo-fi 主題】專為安靜圖書館打造。帶有復古磁帶質感的鋼琴採樣，融入低沉溫暖的男聲獨白與輕柔重拍，極具治癒力。", "cover": "📚" },
-            { "id": "26", "title": "靈感餘溫 (After-Hours Glow)", "mp3_url": "song26.mp3", "description": "【全新男聲 Lo-fi 主題】音樂工作室收工後的寧靜寫照。微醺男聲低吟哼唱，交織鬆軟貝斯與黑膠顆粒重拍，溫柔慵懶。", "cover": "🎛️" }
+            { "id": "26", "title": "靈感餘溫 (After-Hours Glow)", "mp3_url": "song26.mp3", "description": "【全新男聲 Lo-fi 主題】音樂工作室收工後的寧靜寫照。微醺男聲低吟哼唱，交織鬆軟貝斯與黑膠顆粒重拍，溫柔慵懶。", "cover": "🎛️" },
+            { "id": "27", "title": "雨夜街燈 (Neon Rainy Street)", "mp3_url": "song27.mp3", "description": "【全新原創 City Pop】專為雨天咖啡廳打造。流暢電鋼琴與薩克斯風交織敘事感極強的女聲，唱出霓虹街燈被雨水模糊的都市浪漫。🆕", "cover": "🏙️" },
+            { "id": "28", "title": "工作室狂想 (Studio Reverie)", "mp3_url": "song28.mp3", "description": "【全新原創 City Pop】專為音樂工作室打造。明亮合成器音色與極具彈性的貝斯線條完美咬合，男女聲輕快對唱，引爆深夜靈感。🆕", "cover": "🎹" }
         ];
 
         const publicTrackInfo = {
@@ -381,8 +383,8 @@
                 const locText = activeLocBtn ? activeLocBtn.innerText : '';
                 const moodText = activeMoodBtn ? activeMoodBtn.innerText : '';
 
-                // ⚡ 28排列組合「極致完全體・26首無撞歌大腦」解耦大腦晶片
-                if (moodText.includes('Fitness') || moodText.includes('運動重拍')) {
+                // ⚡ 28排列組合「終極解耦完全體・28首無撞歌大腦」解耦大腦晶片
+                if (moodText.includes('Fitness') || moodText.includes('專區') || moodText.includes('運動重拍')) {
                     if (locText.includes('咖啡廳') || locText.includes('cafe')) { 
                         finalSongId = "20"; 
                     } else if (locText.includes('圖書館') || locText.includes('library')) { 
@@ -423,21 +425,27 @@
                         finalSongId = "6";  
                     }
                 } else if (moodText.includes('Lo-fi') || moodText.includes('放鬆')) {
-                    // 👑 4大空間專屬 Lo-fi 完美解耦大腦電路 (100%固定不撞歌)
                     if (locText.includes('咖啡廳') || locText.includes('cafe')) { 
-                        finalSongId = "23";  // ☕ 雨天咖啡廳 ➔ 固定播放 第 23 首 (專屬女聲版)
+                        finalSongId = "23";  
                     } else if (locText.includes('圖書館') || locText.includes('library')) { 
-                        finalSongId = "25";  // 📚 安靜圖書館 ➔ 固定播放 第 25 首 (專屬男聲版) 🆕
+                        finalSongId = "25";  
                     } else if (locText.includes('工作室') || locText.includes('studio')) { 
-                        finalSongId = "26";  // 🎛️ 音樂工作室 ➔ 固定播放 第 26 首 (專屬男聲版) 🆕
+                        finalSongId = "26";  
                     } else if (locText.includes('霓虹城') || locText.includes('cyberpunk')) { 
-                        finalSongId = "24";  // 🌌 不夜霓虹城 ➔ 固定播放 第 24 首 (專屬女聲版)
+                        finalSongId = "24";  
                     } else { 
                         finalSongId = "3";  
                     }
                 } else if (moodText.includes('City Pop')) {
-                    if (locText.includes('霓虹城') || locText.includes('cyberpunk')) {
-                        finalSongId = "10"; 
+                    // 👑 4大空間專屬 City Pop 頂級完全解耦！
+                    if (locText.includes('咖啡廳') || locText.includes('cafe')) { 
+                        finalSongId = "27";  // ☕ 雨天咖啡廳 ➔ 固定播放 第 27 首《雨夜街燈》 🆕
+                    } else if (locText.includes('圖書館') || locText.includes('library')) { 
+                        finalSongId = "1";   // 📚 安靜圖書館 ➔ 固定播放 第 01 首《都市漫遊》（完美退讓成獨家專屬）
+                    } else if (locText.includes('工作室') || locText.includes('studio')) { 
+                        finalSongId = "28";  // 🎛️ 音樂工作室 ➔ 固定播放 第 28 首《工作室狂想》 🆕
+                    } else if (locText.includes('霓虹城') || locText.includes('cyberpunk')) { 
+                        finalSongId = "10";  // 🌌 不夜霓虹城 ➔ 固定播放 第 10 首《城市脈衝》
                     } else {
                         finalSongId = "1";
                     }
