@@ -70,16 +70,29 @@
         .btn-generate { background: linear-gradient(45deg, var(--main-pink), #ed799d); color: #0d0a17; border: none; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; box-shadow: 0 0 15px rgba(229, 91, 133, 0.4); margin-top: 10px; }
         .btn-generate:hover { transform: translateY(-2px); box-shadow: 0 0 25px var(--main-pink); }
 
+        /* 🎛️ 播放器面板與全新控制器樣式 */
         .player-panel { display: flex; flex-direction: column; align-items: center; justify-content: center; border-left: 1px solid var(--glass-border); padding-left: 40px; }
-        .vinyl-wrapper { position: relative; width: 180px; height: 180px; margin-bottom: 25px; }
+        .vinyl-wrapper { position: relative; width: 180px; height: 180px; margin-bottom: 20px; }
         .vinyl { width: 100%; height: 100%; background: radial-gradient(circle, #252033 25%, #0d0a17 55%, #181426 65%, #05040a 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 25px rgba(0,0,0,0.8); }
         .vinyl.playing { animation: rotateVinyl 6s linear infinite; }
+        .vinyl.paused { animation-play-state: paused; }
         .vinyl-center { width: 60px; height: 60px; background: var(--main-pink); border-radius: 50%; border: 5px solid #0d0a17; }
         .vinyl.playing .vinyl-center { background: var(--sub-cyan); box-shadow: 0 0 15px var(--sub-cyan); }
         @keyframes rotateVinyl { 100% { transform: rotate(360deg); } }
 
+        /* 🆕 播放控制鍵與音量滑桿樣式 */
+        .player-controls { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 15px; margin-top: 5px; margin-bottom: 15px; }
+        .btn-playback { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--main-pink); color: var(--main-pink); padding: 8px 24px; border-radius: 30px; font-size: 14px; font-weight: bold; cursor: pointer; transition: 0.3s; box-shadow: 0 0 10px rgba(229, 91, 133, 0.1); display: none; } /* 預設隱藏，點歌後顯示 */
+        .btn-playback:hover { background: var(--main-pink); color: #0b0914; box-shadow: 0 0 15px var(--main-pink); }
+        
+        .volume-container { display: flex; align-items: center; gap: 10px; width: 85%; max-width: 160px; opacity: 0; transition: opacity 0.4s; } /* 點歌後淡入顯示 */
+        .volume-icon { font-size: 14px; color: var(--text-sub); width: 20px; text-align: center; }
+        .volume-slider { -webkit-appearance: none; width: 100%; height: 4px; background: rgba(255, 255, 255, 0.1); border-radius: 2px; outline: none; cursor: pointer; }
+        .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--sub-cyan); cursor: pointer; box-shadow: 0 0 8px var(--sub-cyan); transition: 0.2s; }
+        .volume-slider::-webkit-slider-thumb:hover { transform: scale(1.2); }
+
         .status-text { font-size: 18px; font-weight: bold; margin-bottom: 8px; text-align: center; color: var(--text-main); }
-        .style-display { font-size: 13px; color: #b1adca; margin-bottom: 20px; text-align: center; line-height: 1.6; min-height: 75px; }
+        .style-display { font-size: 13px; color: #b1adca; margin-bottom: 15px; text-align: center; line-height: 1.6; min-height: 75px; }
 
         .wave-container { display: flex; align-items: center; gap: 4px; height: 30px; opacity: 0.15; }
         .wave-container.active { opacity: 1; }
@@ -178,6 +191,15 @@
                         <div class="vinyl-center"></div>
                     </div>
                 </div>
+                
+                <div class="player-controls">
+                    <button class="btn-playback" id="playbackBtn" onclick="togglePlayback()">⏸️ 暫停音樂</button>
+                    <div class="volume-container" id="volumeCtrl">
+                        <span class="volume-icon" id="volIcon">🔊</span>
+                        <input type="range" class="volume-slider" id="volSlider" min="0" max="100" value="80" oninput="adjustVolume(this.value)">
+                    </div>
+                </div>
+
                 <div class="status-text" id="statusText">正在挑選黑膠唱片...</div>
                 <div class="style-display" id="styleDisplay">請點選左側你喜歡的空間與心情風格</div>
                 
@@ -257,7 +279,7 @@
             { "id": "28", "title": "工作室狂想 (Studio Reverie)", "description": "專為音樂工作室打造。明亮合成器音色與極具彈性的貝斯線條完美咬合，男女聲輕快對唱。", "mp3_url": "song28.mp3", "cover": "🎹" }
         ];
 
-        const publicTrackInfo = { "title": "Pavement Afterglow (都市餘暉)", "mp3_url": "public.mp3", "description": "📻【官方公播主打歌】優雅絲滑的現代 Neo-Soul 氛圍，慵懶女聲哼唱交織溫暖爵士電鋼琴。" };
+        const publicTrackInfo = { "title": "Pavement Afterglow (都市餘暉)", "mp3_url": "public.mp3", "description": "📻【官方公播主主打歌】優雅絲滑的現代 Neo-Soul 氛圍，慵懶女聲哼唱交織溫暖爵士電鋼琴。" };
 
         let audioPlayer = new Audio(); audioPlayer.loop = true;
         let selectedLocTag = 'cyberpunk'; let selectedLocName = '不夜霓虹城';
@@ -270,10 +292,11 @@
         function queryLocalDatabase() {
             const status = document.getElementById('statusText'); const style = document.getElementById('styleDisplay');
             const vinyl = document.getElementById('vinylDisc'); const wave = document.getElementById('waveVisual');
+            const playbackBtn = document.getElementById('playbackBtn'); const volumeCtrl = document.getElementById('volumeCtrl');
             if(!status || !style || !vinyl || !wave) return;
 
             audioPlayer.pause(); status.innerText = "☕ 正在幫你從架上挑選黑膠...";
-            vinyl.classList.remove('playing'); wave.classList.remove('active');
+            vinyl.className = 'vinyl'; wave.classList.remove('active'); // 重設黑膠與音波狀態
 
             setTimeout(() => {
                 let finalSongId = "1"; 
@@ -282,7 +305,6 @@
                 const locText = activeLocBtn ? activeLocBtn.innerText : '';
                 const moodText = activeMoodBtn ? activeMoodBtn.innerText : '';
 
-                // ⚡ 終極智慧解耦：28組合 ➔ 28首完全單一分流
                 if (moodText.includes('Fitness') || moodText.includes('專區') || moodText.includes('運動重拍')) {
                     if (locText.includes('咖啡廳') || locText.includes('cafe')) finalSongId = "20";
                     else if (locText.includes('圖書館') || locText.includes('library')) finalSongId = "19";
@@ -292,7 +314,7 @@
                     if (locText.includes('咖啡廳') || locText.includes('cafe')) finalSongId = "2";
                     else if (locText.includes('圖書館') || locText.includes('library')) finalSongId = "9";
                     else if (locText.includes('工作室') || locText.includes('studio')) finalSongId = "14";
-                    else if (locText.includes('霓虹城') || locText.includes('cyberpunk')) finalSongId = "4"; // 04首 精準歸位！
+                    else if (locText.includes('霓虹城') || locText.includes('cyberpunk')) finalSongId = "4"; 
                 } else if (moodText.includes('Synthwave') || moodText.includes('霓虹')) {
                     if (locText.includes('咖啡廳') || locText.includes('cafe')) finalSongId = "3";
                     else if (locText.includes('圖書館') || locText.includes('library')) finalSongId = "13";
@@ -315,7 +337,7 @@
                     else if (locText.includes('霓虹城') || locText.includes('cyberpunk')) finalSongId = "10";
                 } else if (moodText.includes('Jazz Hop')) {
                     if (locText.includes('咖啡廳') || locText.includes('cafe')) finalSongId = "5";
-                    else if (locText.includes('圖書館') || locText.includes('library')) finalSongId = "6"; // 06首 精準歸位！
+                    else if (locText.includes('圖書館') || locText.includes('library')) finalSongId = "6"; 
                     else if (locText.includes('工作室') || locText.includes('studio')) finalSongId = "21";
                     else if (locText.includes('霓虹城') || locText.includes('cyberpunk')) finalSongId = "22";
                 }
@@ -328,12 +350,50 @@
                     audioPlayer.src = matchedTrack.mp3_url; status.innerText = `✨ 唱針落下了！`;
                     style.innerHTML = `<b>正在播放：</b>${matchedTrack.title}<br><b>當前氣氛：</b>${selectedStyleName}<br><span style="color:var(--sub-cyan); font-size:12px; display:inline-block; margin-top:5px;">${matchedTrack.description}</span>`;
                 }
-                vinyl.classList.add('playing'); wave.classList.add('active');
+
+                // 顯示暫停鍵與音量控制鍵
+                if(playbackBtn) { playbackBtn.style.display = "block"; playbackBtn.innerText = "⏸️ 暫停音樂"; }
+                if(volumeCtrl) { volumeCtrl.style.opacity = "1"; }
+
+                vinyl.className = 'vinyl playing'; wave.classList.add('active');
                 audioPlayer.play().catch(e => console.log("等待用戶點擊解鎖音訊通道...", e));
             }, 1000);
         }
 
-        document.body.addEventListener('click', () => { if (audioPlayer.src && audioPlayer.paused && document.getElementById('vinylDisc').classList.contains('playing')) { audioPlayer.play().catch(e => console.log(e)); } });
+        // 🆕 新增：點擊暫停/播放二合一控制邏輯
+        function togglePlayback() {
+            const playbackBtn = document.getElementById('playbackBtn');
+            const vinyl = document.getElementById('vinylDisc');
+            const wave = document.getElementById('waveVisual');
+            if(!playbackBtn || !vinyl || !wave) return;
+
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playbackBtn.innerText = "⏸️ 暫停音樂";
+                vinyl.className = 'vinyl playing';
+                wave.classList.add('active');
+            } else {
+                audioPlayer.pause();
+                playbackBtn.innerText = "▶️ 繼續播放";
+                vinyl.className = 'vinyl playing paused'; // 凍結黑膠旋轉動畫
+                wave.classList.remove('active'); // 停下音波跳動
+            }
+        }
+
+        // 🆕 新增：線性音量調整控制邏輯
+        function adjustVolume(value) {
+            const volIcon = document.getElementById('volIcon');
+            audioPlayer.volume = value / 100; // 將滑桿的 0~100 轉換成 Audio 的 0~1
+
+            if(volIcon) {
+                if (value == 0) volIcon.innerText = "🔇";
+                else if (value < 40) volIcon.innerText = "🔈";
+                else if (value < 75) volIcon.innerText = "🔉";
+                else volIcon.innerText = "🔊";
+            }
+        }
+
+        document.body.addEventListener('click', () => { if (audioPlayer.src && audioPlayer.paused && document.getElementById('vinylDisc').classList.contains('playing') && !document.getElementById('vinylDisc').classList.contains('paused')) { audioPlayer.play().catch(e => console.log(e)); } });
         function renderMusicGrid() { const container = document.getElementById('gridContainer'); if(!container) return; container.innerHTML = ''; localMusicDatabase.forEach(track => { const card = document.createElement('div'); card.className = 'music-card'; card.innerHTML = `<div class="cover-art">${track.cover}</div><h3>${track.title}</h3><p>${track.description}</p>`; container.appendChild(card); }); }
     </script>
 </body>
